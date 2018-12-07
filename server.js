@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var method = require("method-override")
+var method = require("method-override");
 var db = require("./models");
 
 var app = express();

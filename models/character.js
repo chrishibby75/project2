@@ -7,24 +7,30 @@ module.exports = (sequelize, DataTypes)=>{
                 len:[1,100]
             }
         },
+        hp: {
+            type: DataTypes.INTEGER,
+            defaultValue: 100
+        },
         gold: {
             type: DataTypes.INTEGER,
             defaultValue: 2000,
         },
         assets: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         },
         potion: {
-            type: DataTypes.String,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         },
         food: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         }
 
     })
+    Character.associate = models => {
     Character.hasOne(models.Game);
+    }
     return Character
 }
