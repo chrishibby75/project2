@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes)=>{
     area: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    },
+    }
    
     
   });
