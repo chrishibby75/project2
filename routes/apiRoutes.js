@@ -1,8 +1,8 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/", (req,res)=>{
+  // get data for the game
+  app.get("/",(req,res)=>{
 
     db.Game.findAll({
           
@@ -17,7 +17,20 @@ module.exports = function(app) {
   app.get("/game", (req,res)=>{
        res.render("game")
   })
-  //API to update the characters 
+  //API to update the characters
+  //If they take a potion it increases health
+  //If take damage decreases health
+  //max HP is 100 
+  app.get("/character/hp", (req, res) =>{
+    id = req.body.id
+    db.Character.findOne({
+      where: {
+        id: id
+      }
+    }).then(data=>{
+      res.json(data.hp)
+    })
+  })
   app.put("/character/hp", (req, res)=>{
     id = req.body.id
     db.Character.findOne({
@@ -25,13 +38,27 @@ module.exports = function(app) {
         id: id
       }
     }).then(data =>{
-      var hp = data.hp - 40;
+      if (res.body.hp === yes){
+        var hp = data.hp + 40
+        if(hp > 100){
+          hp = 100
+        }
+        db.Character.update({
+             hp:hp,
+             where: {
+               id:id
+             }
+        })
+      }
+      else{
+      var hp = data.hp - 50;
       db.Character.update({
         hp: hp,
         where: {
           id: id
         }
       })
+    }
     })
   })
   app.get("/character/inventory:id", function(req, res) {
