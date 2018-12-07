@@ -2,8 +2,29 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/", (req,res)=>{
+    var query = [];
+    if (req.query.CustomerId) {
+        query.Customer = req.query.CustomerId
+    }
+    db.Burger.findAll({
+            include: db.Customer,
+            where: query
+        })
+        .then(data => {
+            var hbsObject = {
+                burgers: data
+            };
+            res.render("index", hbsObject)
+        })
+})
+  app.get("/game")
+  app.get("/character/inventory:id", function(req, res) {
+    db.Example.findAll({
+      where: {
+
+      }
+    }).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
