@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // get data for the game
-  app.get("/",(req,res)=>{
+  app.get("/", (req,res)=>{
 
     db.Game.findAll({
           
@@ -21,8 +21,8 @@ module.exports = function(app) {
   //If they take a potion it increases health
   //If take damage decreases health
   //max HP is 100 
-  app.get("/character/hp", (req, res) =>{
-    id = req.body.id
+  app.get("/character/hp/:id", (req, res) =>{
+    id = req.params.id
     db.Character.findOne({
       where: {
         id: id
