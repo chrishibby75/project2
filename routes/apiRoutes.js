@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // get data for the game
-  app.get("/",(req,res)=>{
+  app.get("/", (req,res)=>{
 
     db.Game.findAll({
           
@@ -21,8 +21,17 @@ module.exports = function(app) {
   //If they take a potion it increases health
   //If take damage decreases health
   //max HP is 100 
-  app.get("/character/hp", (req, res) =>{
-    id = req.body.id
+  //tested
+  app.post("/character", (req, res) =>{
+    dp.Character.create({
+    
+      name: req.body.name
+    }).then((data)=>{
+      res.json(data)
+    })
+  })
+  app.get("/character/hp/:id", (req, res) =>{
+    id = req.params.id
     db.Character.findOne({
       where: {
         id: id
@@ -31,24 +40,26 @@ module.exports = function(app) {
       res.json(data.hp)
     })
   })
-  app.put("/character/hp", (req, res)=>{
-    id = req.body.id
+  ///UPDATE CHARACTER ID
+  app.put("/character/hp/:id", (req, res)=>{
+    id = req.params.id
     db.Character.findOne({
       where: {
-        id: id
+        id: req.params.id
       }
     }).then(data =>{
-      if (res.body.hp === yes){
+      if (res.body.hp === 'yes'){
         var hp = data.hp + 40
         if(hp > 100){
           hp = 100
         }
+        console.log(hp)
         db.Character.update({
              hp:hp,
              where: {
                id:id
              }
-        })
+        }).then(res.redirect('/game'))
       }
       else{
       var hp = data.hp - 50;
@@ -57,19 +68,24 @@ module.exports = function(app) {
         where: {
           id: id
         }
-      })
+      }).then(res.redirect('/game'))
     }
     })
   })
-  app.get("/character/inventory:id", function(req, res) {
-    db.Example.findAll({
+  ////////////DISPLAY INVENTORY ID//////
+  /////////////////////////////////////
+  app.get("/character/inventory/:id", function(req, res) {
+    db.Character.findOne({
       where: {
-
+           id: req.params.id
       }
-    }).then(function(dbExamples) {
-      res.json(dbExamples);
+    }).then(function(data) {
+      res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
+  
+  app.
+
 
   // Create a new example
   app.post("/api/examples", function(req, res) {
