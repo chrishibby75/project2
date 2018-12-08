@@ -1,3 +1,20 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body{
+
+  background-image: url("/public/imgf/wizardbg.jpg");
+  background-size:cover;
+}
+
+p { 
+  font-family:fantasy;
+  size: 28px;
+  font-size: 30px;
+  color: red;
+}
+#chest {  
+  height: 150px;
+  width: 150px;
+}
