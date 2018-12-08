@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes)=>{
     
   });
   Game.associate = models => {
-      Game.belongsTo(models.Player,{
+      Game.belongsTo(models.Character,{
         foreignKey: {
-        allowNull: false
+        allowNull: true
       }})
   }
   return Game;

@@ -1,10 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "password",
     "database": "rpgame",
     "host": "127.0.0.1",
-    "dialect": "password"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
