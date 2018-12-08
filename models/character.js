@@ -26,8 +26,14 @@ module.exports = (sequelize, DataTypes)=>{
         food: {
             type: DataTypes.INTEGER,
             defaultValue: 0
-        }
+        },
+        
+        
+        
 
+    },
+    {
+        timestamps: false
     })
     Character.associate = models => {
     Character.hasOne(models.Game);
