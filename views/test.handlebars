@@ -1,0 +1,9 @@
+tezsting
+hp: {{data.hp}}
+<button  method= "POST" action="/character/hp/{{data.id}}?_method=PUT" name='hp' value="yes">Use Potion</button>
+
+<form method="POST" action='/character/hp/{{data.id}}?_method=PUT' class='button-size' >
+						<input type="hidden" type="text" name="hp" value='yes'><br>
+						{{!-- enter eater name here --}}
+						<button type="submit" class="btn btn-default red eat">eat</button>
+					</form>

@@ -19,6 +19,18 @@ module.exports = function(app) {
       });
     });
   });
+  app.get("/test", (req,res)=>{
+    db.Character.findOne({
+      where: {
+        id: 1
+      }
+    }).then((data)=>{
+      hbsObject = {data: data}
+      res.render("test", hbsObject)
+
+    }
+    )
+  })
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

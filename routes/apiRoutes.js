@@ -48,18 +48,21 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(data =>{
-      if (res.body.hp === 'yes'){
+      if (req.body.hp === 'yes'){
         var hp = data.hp + 40
-        if(hp > 100){
+        if(hp > 2000){
           hp = 100
         }
         console.log(hp)
         db.Character.update({
              hp:hp,
-             where: {
-               id:id
-             }
-        }).then(res.redirect('/game'))
+             },
+            {
+              where: {
+                id:id
+              }
+            }).then(
+              res.redirect('/'))
       }
       else{
       var hp = data.hp - 50;
@@ -68,7 +71,7 @@ module.exports = function(app) {
         where: {
           id: id
         }
-      }).then(res.redirect('/game'))
+      }).then(res.redirect('/test'))
     }
     })
   })
@@ -83,21 +86,8 @@ module.exports = function(app) {
       res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
+} 
   
-  app.
-
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};

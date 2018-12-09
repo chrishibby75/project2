@@ -9,7 +9,7 @@ switch (turn) {
         dialogue[turn]
         break;
 
-    case (turn % 2 != 0 && turn != 9):
+    case (turn % 2 != 0 && turn < 9):
         dialogue[4]
         turn++
         break;
@@ -19,6 +19,9 @@ switch (turn) {
         encounter()
         turn++
         break;
+    case 9:
+       endGame()
+       break;
 }
 
 encounter = (assets, hungry) => {
@@ -35,7 +38,7 @@ encounter = (assets, hungry) => {
                 type: 'PUT',
                 id:id,
 
-            }).then(location.reload());
+            }).then(location.reload('/game'));
             hp = 40
             turn++
             return dialogue[7]
