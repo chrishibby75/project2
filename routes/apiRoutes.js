@@ -63,8 +63,8 @@ module.exports = function(app) {
               where: {
                 id:id
               }
-            }).then(
-              res.redirect('/test/'))
+            }).then((data)=>{
+              res.redirect('/test/'+ id)})
       }
       else{
       var hp = data.hp - 50;
@@ -73,7 +73,7 @@ module.exports = function(app) {
         where: {
           id: id
         }
-      }).then(res.redirect('/test'))
+      }).then((data)=>{res.redirect('/test/'+ id)})
     }
     })
   })
@@ -111,7 +111,7 @@ module.exports = function(app) {
           id: id
         }
       }).then((data)=>{
-         res.redirect("/test/")
+         res.redirect("/test/" + id)
       })
     }
     )
