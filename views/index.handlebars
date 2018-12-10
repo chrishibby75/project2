@@ -3,15 +3,7 @@
         <div class="col-md-12 text-center">
             <h1>Wizard Quest IV</h1>
             <div class="row">
-                <form method="GET" action="game/new" class="button-size form-inline">
-                    <input type="input" name="new-game" type="text" placeholder="new game" value={{this.id}}>
-                    <button type="submit" class="btn btn-secondary btn-sm float-right login-btn"></button>
-                </form>
-
-                <form method="GET" action"game/resume" class="button-size form-inline">
-                    <input type="input" name="resume-game" type="text" placeholder="resume-game" value={{this.id}}>
-                    <button type="submit" class="btn btn-secondary btn-sm float-right password-btn"></button>
-                </form>
+                <a href="/start" class="btn btn-primary-lg">Start Game</a>
             </div>
 
         </div>
@@ -20,12 +12,5 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js">
-
-var startGame = () => {
-    if (newGame) {
-
-    }
-}
-
 
 </script>
