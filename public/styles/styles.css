@@ -3,18 +3,27 @@
 }
 
 body{
-
-  background-image: url("/public/imgf/wizardbg.jpg");
+  background-image: url("wizardbg.jpg");
   background-size:cover;
 }
 
 p { 
   font-family:fantasy;
   size: 28px;
-  font-size: 30px;
+  font-size: 45px;
   color: red;
+ text-align: left;
 }
-#chest {  
-  height: 150px;
-  width: 150px;
+
+img {  
+  height: 180px;
+  width: 180px;
+  opacity: 0.3;
+  filter: alpha(opacity=50);  
+}
+
+#navbarNav {
+  font-size: 25px;
+  font-family:fantasy;
+
 }
