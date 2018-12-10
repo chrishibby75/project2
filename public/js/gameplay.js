@@ -9,7 +9,9 @@ var dialogue = [
     "The bandits beat you up you lost 40 HP",
     "What do you want to do?"
   ];
-var turn = 0
+
+  ///front end javascript logic
+var turn = 0+turn
 
 var encounterChance = Math.random()
 $(document).ready(function(){
@@ -77,4 +79,3 @@ encounter = (assets, hungry) => {
         }
     } 
 }
-module.exports = gamePlay()
