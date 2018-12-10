@@ -41,6 +41,8 @@ module.exports = function(app) {
     })
   })
   ///UPDATE CHARACTER ID
+  //working!!!!!
+  //figure out res redirect
   app.put("/character/hp/:id", (req, res)=>{
     id = req.params.id
     db.Character.findOne({
@@ -62,7 +64,7 @@ module.exports = function(app) {
                 id:id
               }
             }).then(
-              res.redirect('/'))
+              res.redirect('/test/'))
       }
       else{
       var hp = data.hp - 50;
@@ -76,6 +78,7 @@ module.exports = function(app) {
     })
   })
   ////////////DISPLAY INVENTORY ID//////
+  //////////working////////////////////
   /////////////////////////////////////
   app.get("/character/inventory/:id", function(req, res) {
     db.Character.findOne({
@@ -86,8 +89,36 @@ module.exports = function(app) {
       res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
+  app.post("/api/game/start/", (req, res)=>{
+    db.Game.create({
+      game_name: req.body.gameName
+    }).then((data=>{
+      res.redirect('/api/character/create')
+    }))
+  })
+
+  app.post("/api/game/character/c/", (req,res)=>{
+    db.Character.create({
+      character_name: req.body.characterName
+    }).then((data)=>{
+      var id= data.id;
+      db.Game.update({
+        CharacterId: id,
+        
+      },
+      {
+        where: {
+          id: id
+        }
+      }).then((data)=>{
+         res.redirect("/test/")
+      })
+    }
+    )
+  })
 } 
-  
+
+
 
   // Create a new example
 
