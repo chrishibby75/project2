@@ -41,6 +41,8 @@ module.exports = function(app) {
     })
   })
   ///UPDATE CHARACTER ID
+  //working!!!!!
+  //figure out res redirect
   app.put("/character/hp/:id", (req, res)=>{
     id = req.params.id
     db.Character.findOne({
@@ -48,18 +50,21 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(data =>{
-      if (res.body.hp === 'yes'){
+      if (req.body.hp === 'yes'){
         var hp = data.hp + 40
-        if(hp > 100){
+        if(hp > 2000){
           hp = 100
         }
         console.log(hp)
         db.Character.update({
              hp:hp,
-             where: {
-               id:id
-             }
-        }).then(res.redirect('/game'))
+             },
+            {
+              where: {
+                id:id
+              }
+            }).then((data)=>{
+              res.redirect('/test/'+ id)})
       }
       else{
       var hp = data.hp - 50;
@@ -68,11 +73,12 @@ module.exports = function(app) {
         where: {
           id: id
         }
-      }).then(res.redirect('/game'))
+      }).then((data)=>{res.redirect('/test/'+ id)})
     }
     })
   })
   ////////////DISPLAY INVENTORY ID//////
+  //////////working////////////////////
   /////////////////////////////////////
   app.get("/character/inventory/:id", function(req, res) {
     db.Character.findOne({
@@ -83,21 +89,36 @@ module.exports = function(app) {
       res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
-  
-  app.
+  app.post("/api/game/start/", (req, res)=>{
+    db.Game.create({
+      game_name: req.body.gameName
+    }).then((data=>{
+      res.redirect('/api/character/create')
+    }))
+  })
+
+  app.post("/api/game/character/c/", (req,res)=>{
+    db.Character.create({
+      character_name: req.body.characterName
+    }).then((data)=>{
+      var id= data.id;
+      db.Game.update({
+        CharacterId: id,
+        
+      },
+      {
+        where: {
+          id: id
+        }
+      }).then((data)=>{
+         res.redirect("/test/" + id)
+      })
+    }
+    )
+  })
+} 
+
 
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
