@@ -1,15 +1,26 @@
-dialogue = require('./scene')
+var dialogue = [
+    "You have lost your lover. However there is a way to bring her back.",
+    "Go to the Dark Castle and bring back the magic sword. With it I can bring them back",
+    "Welcome to my shop! What can I get you?",
+    "Bandits attack!",
+    "What do you want to do?",
+    "You narrowly escaped the bandits!",
+    "You escaped the bandits and grabbed 300 gold!",
+    "The bandits beat you up you lost 40 HP",
+    "What do you want to do?"
+  ];
 var turn = 0
 
 var encounterChance = Math.random()
-
+$(document).ready(function(){
+alert('test working')})
 
 switch (turn) {
     case 0:
         dialogue[turn]
         break;
 
-    case (turn % 2 != 0 && turn != 9):
+    case (turn % 2 != 0 && turn < 9):
         dialogue[4]
         turn++
         break;
@@ -19,6 +30,9 @@ switch (turn) {
         encounter()
         turn++
         break;
+    case 9:
+       endGame()
+       break;
 }
 
 encounter = (assets, hungry) => {
@@ -35,7 +49,7 @@ encounter = (assets, hungry) => {
                 type: 'PUT',
                 id:id,
 
-            }).then(location.reload());
+            }).then(location.reload('/game'));
             hp = 40
             turn++
             return dialogue[7]
@@ -63,3 +77,4 @@ encounter = (assets, hungry) => {
         }
     } 
 }
+module.exports = gamePlay()

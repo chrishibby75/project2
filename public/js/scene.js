@@ -8,5 +8,5 @@ var dialogue = [
   "You escaped the bandits and grabbed 300 gold!",
   "The bandits beat you up you lost 40 HP",
   "What do you want to do?"
-]
+];
 module.exports = dialogue;

@@ -5,7 +5,9 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index2", {});
   });
-
+  app.get("/1", (req,res)=>{
+    res.render("index2")
+  })
   app.get("/start", function(req, res) {
     res.render("login", {});
   });
@@ -24,14 +26,24 @@ module.exports = function(app) {
 
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+  app.get("/test/login",(req,res)=>{
+    res.render("testLogin")
+  })
+  app.get("/test/:id", (req,res)=>{
+    db.Character.findOne({
+      where: {
+      id: req.params.id
+      }
+    }).then((data)=>{
+      hbsObject = {data: data}
+      res.render("test", hbsObject)
 
+    }
+    )
+  })
+  app.get('/api/character/create', (req,res)=>{
+    res.render('testLogin1')
+  })
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

@@ -1,6 +1,6 @@
 var Store = [
   {
-    potion:{
+    potion: {
       quantity: 5,
       price: 300
     }
@@ -16,5 +16,6 @@ var Store = [
       defaultValue: 2,
       price: 600
     }
-  }];
+  }
+];
 module.exports = Store;
