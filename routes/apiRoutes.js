@@ -11,7 +11,7 @@ module.exports = function(app) {
             var hbsObject = {
                 game: data
             };
-            res.render("index", hbsObject)
+            res.render("index2", hbsObject)
         })
 })
   app.get("/game", (req,res)=>{
@@ -81,23 +81,6 @@ module.exports = function(app) {
       }
     }).then(function(data) {
       res.json(data.assets, data.gold, data.potion, data.food)
-    });
-  });
-  
-  app.
-
-
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
     });
   });
 };
