@@ -11,37 +11,48 @@ var dialogue = [
   ];
 
   ///front end javascript logic
-var turn = 0+turn
+
 
 var encounterChance = Math.random()
 $(document).ready(function(){
-alert('test working')})
 
+    var turn = 0
+$("#next").on("click", function(){
+    turn ++
+    gameboi()
+    
+})
+gameboi()
+function gameboi(){
 switch (turn) {
     case 0:
-        dialogue[turn]
-        break;
+        $("#textbox").html(dialogue[turn])
+       // alert('hit')
+
+       //buttons that on click change tthe turn ++ 
 
     case (turn % 2 != 0 && turn < 9):
-        dialogue[4]
-        turn++
-        break;
+        $("#textbox").html(dialogue[4])
+         gameboi()
+        
+        
 
     case (turn % 2 === 0):
-        dialogue[3]
+       $("$textbox").html(dialogue[3])
         encounter()
-        turn++
+        
         break;
     case 9:
        endGame()
        break;
 }
+}
 
 encounter = (assets, hungry) => {
     if (!assets, !hungry) {
         if (encounterChance < 0.33333) {
-            turn++
-            return dialogue[5]
+            
+            $("#textbox").html(dialogue[5])
         } else if (encounterChance < 0.6666) {
             turn++
             return dialogue[6]
@@ -78,4 +89,8 @@ encounter = (assets, hungry) => {
             return dialogue[7]
         }
     } 
+}
+
+gameFunc = function(){
+     
 }
