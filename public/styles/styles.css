@@ -1,8 +1,11 @@
 .list-group-item {
   line-height: 2.5;
 }
-
-body{
+.begin{
+  margin-top: 15%;
+  margin-right: 5%;
+}
+#hat{
   background-image: url("/imgf/wizardbg.jpg");
   background-size:cover;
 }
@@ -13,6 +16,7 @@ p {
   font-size: 45px;
   color: red;
  text-align: left;
+ text-shadow: 1px .5px black
 }
 
 img {  
@@ -21,9 +25,11 @@ img {
   opacity: 0.3;
   filter: alpha(opacity=50);  
 }
-
+#logo{
+  
+}
 #navbarNav {
-  font-size: 25px;
+  font-size: 22px;
   font-family:fantasy;
 
 }

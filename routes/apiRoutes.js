@@ -2,21 +2,7 @@ var db = require("../models");
 
 module.exports = function (app) {
   // get data for the game
-  app.get("/", (req, res) => {
 
-    db.Game.findAll({
-
-          
-        })
-        .then(data => {
-            var hbsObject = {
-                game: data
-            };
-            res.render("index2", hbsObject)
-        })
-
-       
-})
   app.get("/game", (req,res)=>{
        res.render("game")
 
