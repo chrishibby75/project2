@@ -16,29 +16,38 @@ var id = $("#characterName").data('name')
 
 var encounterChance = Math.random()
 $(document).ready(function () {
-
+    
+$('#items').hide()
+$('#buy').on('click', function(){
+    $('#items').show()
+    $("#buy").hide()
+})
     var turn = 0
     $("#next").on("click", function () {
-        gameboi()
+        gameboi(turn, turn++)
         console.log(turn)
         
 
     })
 
-    function gameboi() {
+    function gameboi(turn) {
         switch (turn) {
             case 0:
                 $("#textbox").html(dialogue[turn])
                 //buttons that on click change tthe turn ++ 
-
-            case (turn % 2 != 0 && turn < 9):
+                
+                break;
+            case 1:
                 $("#textbox").html(dialogue[4])
                 
+                break;
                 
-                
+              case 3:
+              $("#textbox").html(dialogue[4]) 
+              break; 
 
 
-            case (turn % 2 === 0 && turn!=0):
+            case 2:
                 $("#textbox").html(dialogue[3])
                 encounter()
 
@@ -47,7 +56,8 @@ $(document).ready(function () {
                 endGame()
                 break;
         }
-        turn ++
+
+        console.log(turn)
     }
 })
 encounter = (assets, hungry) => {
@@ -56,10 +66,10 @@ encounter = (assets, hungry) => {
 
             $("#textbox").html(dialogue[5])
         } else if (encounterChance < 0.6666) {
-        
-            $('#textbox').html(dialogue[6])
+            getGold()
+           
         } else {
-            ///////////MAKE THE AJAX CALL!!!!!!!!!!!!
+            //if they end up taking damage
             takeDamage()
            
         }
@@ -81,8 +91,15 @@ encounter = (assets, hungry) => {
             $("#textbox").html(dialogue[7])
         }
     }
+    return
 }
-
+getGold = function(){
+    var id = $('#characterName').data('name')
+    $.ajax('/character/gold/' + id, {
+        type: 'PUT'
+    }).then( $('#textbox').html(dialogue[6]))
+    
+}
 takeDamage = function(){
     var id = $("#characterName").data('name')
     $.ajax('/character/hp/' + id, {

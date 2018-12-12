@@ -43,6 +43,7 @@ module.exports = function (app) {
   ///UPDATE CHARACTER ID
   //working!!!!!
   //figure out res redirect
+  ///reduce working
   app.put("/character/hp/:id", (req, res) => {
     console.log(req.body.hp)
     id = req.params.id
@@ -64,7 +65,7 @@ module.exports = function (app) {
             id: id
           }
         }).then((data) => {
-          res.redirect('/test/' + id)
+         // res.redirect('/test/' + id)
         })
       } 
       else {
@@ -76,7 +77,7 @@ module.exports = function (app) {
             id: id
           }
         }).then((data) => {
-          res.redirect('/test/' + id)
+          
         })
       }
     })
@@ -100,7 +101,45 @@ module.exports = function (app) {
       res.redirect('/api/character/create')
     }))
   })
-
+  //route for getting gold in the game
+  app.put('/character/gold/:id', (req,res)=>{
+    db.Character.findOne({
+        where: {
+          id: req.params.id
+        }
+    }).then((data)=>{
+      gold = data.gold + 300
+      db.Character.update({
+        gold: gold
+      },
+    {
+      where: {
+        id: req.params.id
+      }
+    }).then()
+    })
+  })
+  app.put('/test/shop/character/weapons/:id', (req,res)=>{
+    id= req.params.id
+    item = req.body.item
+    price = parseInt(req.body.price)
+    quantity = parseInt(req.body.quantity)
+    money= parseInt(req.body.money)
+    value = price * quantity
+    gold = money - value
+    console.log('value' +value)
+    console.log('money' +money)
+    console.log('gold' + gold)
+    console.log(quantity)
+    db.Character.update({
+         gold: gold,
+         assets: quantity
+    }, {
+      where: {
+        id: id
+      }
+    }).then(res.redirect('/test/shop/'+ id))
+  })
   app.post("/api/game/character/c/", (req, res) => {
     db.Character.create({
       character_name: req.body.characterName
