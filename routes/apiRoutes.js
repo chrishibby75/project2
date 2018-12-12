@@ -6,16 +6,18 @@ module.exports = function (app) {
 
     db.Game.findAll({
 
-      })
-      .then(data => {
-        var hbsObject = {
-          game: data
-        };
-        res.render("index", hbsObject)
-      })
-  })
-  app.get("/game", (req, res) => {
-    res.render("game")
+          
+        })
+        .then(data => {
+            var hbsObject = {
+                game: data
+            };
+            res.render("index2", hbsObject)
+        })
+})
+  app.get("/game", (req,res)=>{
+       res.render("game")
+
   })
   //API to update the characters
   //If they take a potion it increases health
@@ -94,6 +96,7 @@ module.exports = function (app) {
       res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
+
   app.post("/api/game/start/", (req, res) => {
     db.Game.create({
       game_name: req.body.gameName
@@ -157,7 +160,14 @@ module.exports = function (app) {
       })
     })
   })
+
 }
 
 
+<<<<<<< HEAD
 // Create a new example
+=======
+
+// Create a new example
+
+>>>>>>> 4a46e7edab1acdb01cb6859d42be1f568f52a4e1

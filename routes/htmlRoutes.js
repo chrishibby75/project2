@@ -3,13 +3,21 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+<<<<<<< HEAD
     res.render("index");
+=======
+    res.render("index2", {});
+>>>>>>> 4a46e7edab1acdb01cb6859d42be1f568f52a4e1
   });
   app.get("/1", (req,res)=>{
     res.render("index")
   })
   app.get("/start", function(req, res) {
     res.render("login", {});
+  });
+
+  app.get("/resume", function(req, res) {
+    res.render("resume", {});
   });
 
   app.post("/start", function(req, res) {
