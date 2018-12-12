@@ -7,6 +7,8 @@ tezsting hp: {{data.hp}}
     <button type="submit" class="btn btn-default red eat">eat</button>
 </form>
 
+<button id='next'>Next</button>
+
 <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Dropdown</button>
     <div id="myDropdown" class="dropdown-content">
@@ -16,10 +18,15 @@ tezsting hp: {{data.hp}}
         <a href="#">Food: {{data.food}}</a>
     </div>
 </div>
-
+<div id="characterName" data-name="{{data.id}}" type="hidden"></div>
+<div id='textbox'></div>
+<button id= 'weapons'>use assets:{{data.assets}}</button>
+<button id= 'adventure'>Adventure</button>
+<button id='shop'><a  href="/test/shop/{{data.id}}">Shop </a></button>
 <script>
     function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
+
 }
 
 // Close the dropdown menu if the user clicks outside of it

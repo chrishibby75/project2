@@ -1,10 +1,11 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // get data for the game
-  app.get("/", (req,res)=>{
+  app.get("/", (req, res) => {
 
     db.Game.findAll({
+
           
         })
         .then(data => {
@@ -16,107 +17,153 @@ module.exports = function(app) {
 })
   app.get("/game", (req,res)=>{
        res.render("game")
+
   })
   //API to update the characters
   //If they take a potion it increases health
   //If take damage decreases health
   //max HP is 100 
   //tested
-  app.post("/character", (req, res) =>{
+  app.post("/character", (req, res) => {
     dp.Character.create({
-    
+
       name: req.body.name
-    }).then((data)=>{
+    }).then((data) => {
       res.json(data)
     })
   })
-  app.get("/character/hp/:id", (req, res) =>{
+  app.get("/character/hp/:id", (req, res) => {
     id = req.params.id
     db.Character.findOne({
       where: {
         id: id
       }
-    }).then(data=>{
+    }).then(data => {
       res.json(data.hp)
     })
   })
   ///UPDATE CHARACTER ID
   //working!!!!!
   //figure out res redirect
-  app.put("/character/hp/:id", (req, res)=>{
+  ///reduce working
+  app.put("/character/hp/:id", (req, res) => {
+    console.log(req.body.hp)
     id = req.params.id
     db.Character.findOne({
       where: {
         id: req.params.id
       }
-    }).then(data =>{
-      if (req.body.hp === 'yes'){
+    }).then(data => {
+      if (req.body.hp === 'yes') {
         var hp = data.hp + 40
-        if(hp > 2000){
+        if (hp > 2000) {
           hp = 100
         }
         console.log(hp)
         db.Character.update({
-             hp:hp,
-             },
-            {
-              where: {
-                id:id
-              }
-            }).then((data)=>{
-              res.redirect('/test/'+ id)})
+          hp: hp,
+        }, {
+          where: {
+            id: id
+          }
+        }).then((data) => {
+         // res.redirect('/test/' + id)
+        })
+      } 
+      else {
+        var hp = data.hp - 50;
+        db.Character.update({
+          hp: hp,
+        }, {
+          where: {
+            id: id
+          }
+        }).then((data) => {
+          
+        })
       }
-      else{
-      var hp = data.hp - 50;
-      db.Character.update({
-        hp: hp,
-        where: {
-          id: id
-        }
-      }).then((data)=>{res.redirect('/test/'+ id)})
-    }
     })
   })
   ////////////DISPLAY INVENTORY ID//////
   //////////working////////////////////
   /////////////////////////////////////
-  app.get("/character/inventory/:id", function(req, res) {
+  app.get("/character/inventory/:id", function (req, res) {
     db.Character.findOne({
       where: {
-           id: req.params.id
+        id: req.params.id
       }
-    }).then(function(data) {
+    }).then(function (data) {
       res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
 
-};
-
-  app.post("/api/game/start/", (req, res)=>{
+  app.post("/api/game/start/", (req, res) => {
     db.Game.create({
       game_name: req.body.gameName
-    }).then((data=>{
+    }).then((data => {
       res.redirect('/api/character/create')
     }))
   })
-
-  app.post("/api/game/character/c/", (req,res)=>{
+  //route for getting gold in the game
+  app.put('/character/gold/:id', (req,res)=>{
+    db.Character.findOne({
+        where: {
+          id: req.params.id
+        }
+    }).then((data)=>{
+      gold = data.gold + 300
+      db.Character.update({
+        gold: gold
+      },
+    {
+      where: {
+        id: req.params.id
+      }
+    }).then()
+    })
+  })
+  app.put('/test/shop/character/weapons/:id', (req,res)=>{
+    id= req.params.id
+    item = req.body.item
+    price = parseInt(req.body.price)
+    quantity = parseInt(req.body.quantity)
+    money= parseInt(req.body.money)
+    value = price * quantity
+    gold = money - value
+    console.log('value' +value)
+    console.log('money' +money)
+    console.log('gold' + gold)
+    console.log(quantity)
+    db.Character.update({
+         gold: gold,
+         assets: quantity
+    }, {
+      where: {
+        id: id
+      }
+    }).then(res.redirect('/test/shop/'+ id))
+  })
+  app.post("/api/game/character/c/", (req, res) => {
     db.Character.create({
       character_name: req.body.characterName
-    }).then((data)=>{
-      var id= data.id;
+    }).then((data) => {
+      var id = data.id;
       db.Game.update({
         CharacterId: id,
-        
-      },
-      {
+
+      }, {
         where: {
           id: id
         }
-      }).then((data)=>{
-         res.redirect("/test/" + id)
+      }).then((data) => {
+        res.redirect("/test/" + id)
       })
-    }
-    )
+    })
   })
-} 
+
+}
+
+
+
+// Create a new example
+

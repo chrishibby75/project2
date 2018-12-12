@@ -41,6 +41,17 @@ module.exports = function(app) {
     }
     )
   })
+  app.get('/test/shop/:id', (req,res)=>{
+    db.Character.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(data=>{
+      hbsObject= {data:data}
+      res.render('testshop', hbsObject)
+    })
+   
+  })
   app.get('/api/character/create', (req,res)=>{
     res.render('testLogin1')
   })
