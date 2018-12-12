@@ -160,5 +160,4 @@ module.exports = function (app) {
 }
 
 
-
 // Create a new example

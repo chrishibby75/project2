@@ -3,10 +3,10 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index", {});
+    res.render("index");
   });
   app.get("/1", (req,res)=>{
-    res.render("index2")
+    res.render("index")
   })
   app.get("/start", function(req, res) {
     res.render("login", {});
