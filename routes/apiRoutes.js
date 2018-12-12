@@ -14,6 +14,8 @@ module.exports = function (app) {
             };
             res.render("index2", hbsObject)
         })
+
+       
 })
   app.get("/game", (req,res)=>{
        res.render("game")
@@ -99,7 +101,8 @@ module.exports = function (app) {
 
   app.post("/api/game/start/", (req, res) => {
     db.Game.create({
-      game_name: req.body.gameName
+      game_name: req.body.gameName,
+      password: req.body.password
     }).then((data => {
       res.redirect('/api/character/create')
     }))
