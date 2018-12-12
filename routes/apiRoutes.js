@@ -164,6 +164,10 @@ module.exports = function (app) {
 }
 
 
+<<<<<<< HEAD
+// Create a new example
+=======
 
 // Create a new example
 
+>>>>>>> 4a46e7edab1acdb01cb6859d42be1f568f52a4e1
