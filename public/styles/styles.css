@@ -9,6 +9,24 @@
   border-image:"/imgf/border.png" 25 25 round
 
 }
+
+.formZ{
+  margin-left: 20%;
+  margin-top: 5%
+  
+}
+
+.subBut{
+  background-color: purple;
+  color:#f3c6ff;
+  background-color:#878787
+}
+.labelhead{
+  font-family: 'Times New Roman', Times, serif;
+  color:#514d4d;
+  font-size: 24px;
+  text-shadow: 1px .5px #918e91
+}
 .hat{
   background-image: url("/imgf/wizardbg.jpg");
   background-size:cover;
