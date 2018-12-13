@@ -9,7 +9,7 @@
   border-image:"/imgf/border.png" 25 25 round
 
 }
-#hat{
+.hat{
   background-image: url("/imgf/wizardbg.jpg");
   background-size:cover;
   
@@ -17,14 +17,15 @@
 }
 
 p { 
-  margin-left: 15%;
+  margin-left: 25%;
   margin-top: 2%;
   font-family:fantasy;
   size: 28px;
   font-size: 45px;
   color: red;
  text-align: left;
- text-shadow: 1px .5px black
+ text-shadow: 1px .5px black;
+ opacity: 0.8;
 }
 
 img {  

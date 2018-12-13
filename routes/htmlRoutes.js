@@ -9,7 +9,7 @@ module.exports = function(app) {
     res.render("index")
   })
   app.get("/start", function(req, res) {
-    res.render("login", {});
+    res.render("index");
   });
 
   app.get("/resume", function(req, res) {
