@@ -8,11 +8,13 @@ module.exports = function (app) {
 
       })
       .then(data => {
+        console.log(data)
         var hbsObject = {
           game: data
         };
         res.render("index", hbsObject)
       })
+
   })
   app.get("/game", (req, res) => {
     res.render("game")
@@ -38,6 +40,13 @@ module.exports = function (app) {
       }
     }).then(data => {
       res.json(data.hp)
+    })
+  })
+
+  app.get("/character/all", (req, res) => {
+    id = req.params.id
+    db.Character.findAll().then(data => {
+      res.json(data)
     })
   })
   ///UPDATE CHARACTER ID
