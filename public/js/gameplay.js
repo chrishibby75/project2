@@ -1,5 +1,5 @@
 var dialogue = [
-    "You have lost your lover. However there is a way to bring her back.",
+    "You have lost your lover. However there is a way to bring her back. Go to the Dark Castle and bring back the magic sword. With it I can bring them back",
     "Go to the Dark Castle and bring back the magic sword. With it I can bring them back",
     "Welcome to my shop! What can I get you?",
     "Bandits attack!",
@@ -12,7 +12,15 @@ var dialogue = [
 
 ///front end javascript logic
 
+//function for video game text
+var showText = function (target, message, index, interval) {   
+    if (index < message.length) {
+      $(target).append(message[index++]);
+      setTimeout(function () { showText(target, message, index, interval); }, interval);
+    }
+  }
 var id = $("#characterName").data('name')
+
 
 var encounterChance = Math.random()
 $(document).ready(function () {
@@ -24,21 +32,32 @@ $('#buy').on('click', function(){
 })
     var turn = 0
     $("#next").on("click", function () {
-        gameboi(turn, turn++)
-        console.log(turn)
+        $('#msg').empty();
+        gameboi(turn, turn++);
+        console.log(turn);
         
 
     })
 
+    $(function () {
+        showText("#msg", dialogue[turn], 0, 100);   
+      })
+    
+
     function gameboi(turn) {
         switch (turn) {
             case 0:
-                $("#textbox").html(dialogue[turn])
+            $(function () {
+                showText("#msg", dialogue[turn], 0, 100);   
+              })
                 //buttons that on click change tthe turn ++ 
                 
                 break;
             case 1:
-                $("#textbox").html(dialogue[4])
+            $(function () {
+                $('#next').hide
+                showText("#msg", dialogue[4], 0, 100);   
+              })
                 
                 break;
                 
