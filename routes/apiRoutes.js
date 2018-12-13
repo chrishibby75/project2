@@ -150,6 +150,12 @@ module.exports = function (app) {
     })
   })
 
+  app.get("api/game/password", function(req,res) {
+    for (var i = 0; i < password.length; i++) {
+
+    }
+  })
+
 }
 
 
