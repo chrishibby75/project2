@@ -50,6 +50,7 @@
   border-image: url('/imgf/border.png') 2px
 }
 
+
 #storebg{
   background-image: url("public/imgf/store2bg.jpg");
   background-size:cover;
@@ -58,6 +59,14 @@
 
 #selectGame {
   background-color: black;
+}
+
+
+.gameCont{
+  background-image: url("/imgf/wizardbg.jpg");
+  background-size:cover;
+  height: 600px;
+  width: 960px
 }
 
 p { 
@@ -75,11 +84,49 @@ p {
 #logo {  
   height: 150px;
   width: 150px;
+
+/* scryin message div*/
+#next{
+  position: absolute;
+  top: 80%;
+  left: 68%;
+  font-family: 'Times New Roman', Times, serif;
+  background-color:#fdeaff 
+}
+/*Button to shop*/
+#shop{
+  position: absolute;
+  top: 70%;
+  left: 65%;
+  padding-left: 2%;
+  padding-right: 2%
+}
+/* all the buttons that appear once gameplay starts*/
+.gamebut{
+  font-family: 'Times New Roman', Times, serif;
+  background-color:#fdeaff 
+}
+#msg{
+  position:relative;
+  top: 80%;
+  left: 25%;
+  padding:2%;
+  opacity: 0.9;
+  background-color:#fdeaff;
+  border: double #878787 3px;
+  font-family: 'Times New Roman', Times, serif;
+}
+img {  
+  height: 180px;
+  width: 180px;
+
   opacity: 0.3;
   filter: alpha(opacity=50);  
 }
-#logo{
-  
+#logo1{
+  margin-left: 10%;
+  height: 20%;
+  width: 20%
 }
 a{
   color: #878787;
@@ -103,6 +150,7 @@ padding: 1%;
 background-color:#f3c6ff;
 opacity: .75
 }
+
 #navbarNav {
   font-size: 25px;
   font-family:fantasy;
@@ -124,4 +172,20 @@ opacity: .75
 #assetsbg h5 {
   color: aliceblue;
   font-family:fantasy;
+
+.navigate2{
+  font-size: 18px;
+  font-family:fantasy;
+  text-shadow: 1px .5px black;
+  margin-left: 55%;
+  margin-top: 2%;
+}
+#gamescreen{
+  background-color: #a382a3
+}
+.gametop{
+  background-color:   #a382a3;
+  padding-bottom: .5%;
+  padding-top: .5%;
+  
 }
