@@ -42,11 +42,12 @@ a{
   text-decoration-color: none;
 }
 a:hover{
-  color: red;
-  text-decoration:none
+  color:#514d4d;
+  text-decoration:none;
+  opacity: 100%
 }
 .navigate{
-margin-left:45%;
+margin-left:43%;
 margin-top: 2.5%;
 font-size: 22px;
 font-family:fantasy;

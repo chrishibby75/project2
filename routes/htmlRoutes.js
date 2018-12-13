@@ -24,7 +24,9 @@ module.exports = function(app) {
     });
   });
 
-
+ app.get("/newgame/", (req, res)=>{
+   res.render("newGame")
+ })
   // Load example page and pass in an example by id
   app.get("/login",(req,res)=>{
     res.render("login")
