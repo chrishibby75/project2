@@ -30,6 +30,13 @@ module.exports = function (app) {
       res.json(data.hp)
     })
   })
+
+  app.get("/character/all", (req, res) => {
+    id = req.params.id
+    db.Character.findAll().then(data => {
+      res.json(data)
+    })
+  })
   ///UPDATE CHARACTER ID
   //working!!!!!
   //figure out res redirect
@@ -132,6 +139,8 @@ module.exports = function (app) {
       }
     }).then(res.redirect('/test/shop/'+ id))
   })
+  ////
+  ///route for creating a new character
   app.post("/api/game/character/c/", (req, res) => {
     db.Character.create({
       character_name: req.body.characterName
@@ -145,7 +154,7 @@ module.exports = function (app) {
           id: id
         }
       }).then((data) => {
-        res.redirect("/test/" + id)
+        res.redirect("/game/" + id)
       })
     })
   })
