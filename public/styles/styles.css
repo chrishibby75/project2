@@ -33,7 +33,12 @@
   
   border-image: url('/imgf/border.png') 2px
 }
-
+.gameCont{
+  background-image: url("/imgf/wizardbg.jpg");
+  background-size:cover;
+  height: 600px;
+  width: 960px
+}
 p { 
   margin-left: 25%;
   margin-top: 2%;
@@ -45,15 +50,25 @@ p {
  text-shadow: 1px .5px black;
  opacity: 0.8;
 }
-
+/* scryin message div*/
+#msg{
+  position:relative;
+  top: 80%;
+  left: 25%;
+  padding:2%;
+  background-color:#a88657;
+  border: double #878787 3px
+}
 img {  
   height: 180px;
   width: 180px;
   opacity: 0.3;
   filter: alpha(opacity=50);  
 }
-#logo{
-  
+#logo1{
+  margin-left: 10%;
+  height: 20%;
+  width: 20%
 }
 a{
   color: #878787;
@@ -77,7 +92,20 @@ padding: 1%;
 background-color:#f3c6ff;
 opacity: .75
 }
-#navbarNav {
-
-
+.navigate2{
+  font-size: 18px;
+  font-family:fantasy;
+  text-shadow: 1px .5px black;
+  margin-left: 55%;
+  margin-top: 2%;
+}
+#gamescreen{
+  background-color: #a382a3
+}
+.gametop{
+  background-color:   #a382a3;
+  padding-bottom: .5%;
+  padding-top: .5%;
+  
+  
 }

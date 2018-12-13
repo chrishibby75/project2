@@ -5,9 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
-  app.get("/1", (req,res)=>{
-    res.render("index")
-  })
+
   app.get("/start", function(req, res) {
     res.render("index");
   });
@@ -31,14 +29,17 @@ module.exports = function(app) {
   app.get("/login",(req,res)=>{
     res.render("login")
   })
-  app.get("/test/:id", (req,res)=>{
+  app.get("/game/:id", (req,res)=>{
     db.Character.findOne({
       where: {
       id: req.params.id
       }
     }).then((data)=>{
       hbsObject = {data: data}
-      res.render("test", hbsObject)
+      res.render("test", {
+        hbsObject,
+        layout:'game'
+      })
 
     }
     )
