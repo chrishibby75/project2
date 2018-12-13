@@ -55,7 +55,7 @@ module.exports = function(app) {
    
   })
   app.get('/api/character/create', (req,res)=>{
-    res.render('testLogin1')
+    res.render('characterCreate')
   })
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
