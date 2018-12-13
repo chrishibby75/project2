@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes)=>{
     var Character = sequelize.define("Character", {
         character_name: {
             type: DataTypes.STRING,
@@ -27,8 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             defaultValue: 0
         },
-    },
-    
+        },
     {
         timestamps: false
     })
