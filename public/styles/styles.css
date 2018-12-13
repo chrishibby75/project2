@@ -10,6 +10,21 @@
 
 }
 
+
+#indexbg {
+
+  background-image: url("public/imgf/wizardbg.jpg");
+  background-size:cover;
+}
+
+#characterbg {
+  background-image: url("public/imgf/characters.jpg");
+  background-size:auto;    
+}
+
+#loginbg {
+  background-image: url("public/imgf/login.jpg");
+
 .formZ{
   margin-left: 20%;
   margin-top: 5%
@@ -29,16 +44,31 @@
 }
 .hat{
   background-image: url("/imgf/wizardbg.jpg");
+
   background-size:cover;
   
   border-image: url('/imgf/border.png') 2px
 }
+
+
+#storebg{
+  background-image: url("public/imgf/store2bg.jpg");
+  background-size:cover;
+}
+
+
+#selectGame {
+  background-color: black;
+}
+
+
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
   background-size:cover;
   height: 600px;
   width: 960px
 }
+
 p { 
   margin-left: 25%;
   margin-top: 2%;
@@ -50,6 +80,11 @@ p {
  text-shadow: 1px .5px black;
  opacity: 0.8;
 }
+
+#logo {  
+  height: 150px;
+  width: 150px;
+
 /* scryin message div*/
 #next{
   position: absolute;
@@ -84,6 +119,7 @@ p {
 img {  
   height: 180px;
   width: 180px;
+
   opacity: 0.3;
   filter: alpha(opacity=50);  
 }
@@ -114,6 +150,29 @@ padding: 1%;
 background-color:#f3c6ff;
 opacity: .75
 }
+
+#navbarNav {
+  font-size: 25px;
+  font-family:fantasy;
+  text-align-last: center;
+}
+
+
+
+#submitBtn {
+  font-size: 25px;
+  font-family:fantasy;
+}
+
+#assetsbg {
+  background-color: black;
+  width: 10rem;
+}
+
+#assetsbg h5 {
+  color: aliceblue;
+  font-family:fantasy;
+
 .navigate2{
   font-size: 18px;
   font-family:fantasy;
@@ -128,6 +187,5 @@ opacity: .75
   background-color:   #a382a3;
   padding-bottom: .5%;
   padding-top: .5%;
-  
   
 }

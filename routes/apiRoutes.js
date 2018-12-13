@@ -30,6 +30,13 @@ module.exports = function (app) {
       res.json(data.hp)
     })
   })
+
+  app.get("/character/all", (req, res) => {
+    id = req.params.id
+    db.Character.findAll().then(data => {
+      res.json(data)
+    })
+  })
   ///UPDATE CHARACTER ID
   //working!!!!!
   //figure out res redirect
