@@ -26,8 +26,8 @@ module.exports = function(app) {
 
 
   // Load example page and pass in an example by id
-  app.get("/test/login",(req,res)=>{
-    res.render("testLogin")
+  app.get("/login",(req,res)=>{
+    res.render("login")
   })
   app.get("/test/:id", (req,res)=>{
     db.Character.findOne({
