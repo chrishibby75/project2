@@ -1,6 +1,15 @@
 .list-group-item {
   line-height: 2.5;
 }
+.begin{
+  margin-top: 15%;
+  margin-right: 5%;
+}
+.borders{
+  border-image:"/imgf/border.png" 25 25 round
+
+}
+
 
 #indexbg {
 
@@ -15,7 +24,30 @@
 
 #loginbg {
   background-image: url("public/imgf/login.jpg");
+
+.formZ{
+  margin-left: 20%;
+  margin-top: 5%
+  
+}
+
+.subBut{
+  background-color: purple;
+  color:#f3c6ff;
+  background-color:#878787
+}
+.labelhead{
+  font-family: 'Times New Roman', Times, serif;
+  color:#514d4d;
+  font-size: 24px;
+  text-shadow: 1px .5px #918e91
+}
+.hat{
+  background-image: url("/imgf/wizardbg.jpg");
+
   background-size:cover;
+  
+  border-image: url('/imgf/border.png') 2px
 }
 
 #storebg{
@@ -29,11 +61,15 @@
 }
 
 p { 
+  margin-left: 25%;
+  margin-top: 2%;
   font-family:fantasy;
   size: 28px;
   font-size: 45px;
   color: red;
  text-align: left;
+ text-shadow: 1px .5px black;
+ opacity: 0.8;
 }
 
 #logo {  
@@ -42,12 +78,38 @@ p {
   opacity: 0.3;
   filter: alpha(opacity=50);  
 }
-
+#logo{
+  
+}
+a{
+  color: #878787;
+  text-decoration-color: none;
+}
+a:hover{
+  color:#514d4d;
+  text-decoration:none;
+  opacity: 100%
+}
+.navigate{
+margin-left:43%;
+margin-top: 2.5%;
+font-size: 22px;
+font-family:fantasy;
+height: 6%;
+radius: 0.9;
+text-align: left;
+text-shadow: 1px .5px black;
+padding: 1%;
+background-color:#f3c6ff;
+opacity: .75
+}
 #navbarNav {
   font-size: 25px;
   font-family:fantasy;
   text-align-last: center;
 }
+
+
 
 #submitBtn {
   font-size: 25px;

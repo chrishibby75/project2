@@ -2,22 +2,10 @@ var db = require("../models");
 
 module.exports = function (app) {
   // get data for the game
-  app.get("/", (req, res) => {
 
-    db.Game.findAll({
+  app.get("/game", (req,res)=>{
+       res.render("game")
 
-      })
-      .then(data => {
-        console.log(data)
-        var hbsObject = {
-          game: data
-        };
-        res.render("index", hbsObject)
-      })
-
-  })
-  app.get("/game", (req, res) => {
-    res.render("game")
   })
   //API to update the characters
   //If they take a potion it increases health
@@ -103,9 +91,11 @@ module.exports = function (app) {
       res.json(data.assets, data.gold, data.potion, data.food)
     });
   });
+
   app.post("/api/game/start/", (req, res) => {
     db.Game.create({
-      game_name: req.body.gameName
+      game_name: req.body.gameName,
+      password: req.body.password
     }).then((data => {
       res.redirect('/api/character/create')
     }))
@@ -166,8 +156,11 @@ module.exports = function (app) {
       })
     })
   })
+
 }
 
 
+
+// Create a new example
 
 // Create a new example

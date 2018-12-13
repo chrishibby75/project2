@@ -1,19 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="card-body">
-        <a href="/">← Back To Home</a>
-      </div>
-      
-      <div class="row">
-        <p class="display">{{this.id}}. {{this.db_name}}</p>
-        <form method="POST" action="/start" class="button-size form-inline">
-          <input type="input" name="game_name" type="text" placeholder="game id" value={{this.id}}>
-          <input type="input" name="password" type="text" placeholder="password" value={{this.id}}>
-          <button type="submit" value="start" class="btn btn-secondary btn-sm float-right password-btn"></button>
-        </form>
-      </div>
-      
-    </div>
+
+
+<div class='col-6 formZ'>
+<form method="POST" action="/loginGame/">
+  <div class="form-group">
+    <label for="example" class="labelhead">Enter Your Game Name</label>
+    <input type="test" name="game_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Game Name">
+  
   </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="labelhead">Enter Your Game Passoword</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+  </div>
+ 
+  <button type="submit" class="btn subBut">Submit</button>
+</form>
 </div>

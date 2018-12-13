@@ -3,13 +3,17 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index", {});
+    res.render("index");
   });
   app.get("/1", (req,res)=>{
-    res.render("index2")
+    res.render("index")
   })
   app.get("/start", function(req, res) {
-    res.render("login", {});
+    res.render("index");
+  });
+
+  app.get("/resume", function(req, res) {
+    res.render("resume", {});
   });
 
   app.post("/start", function(req, res) {
@@ -20,10 +24,12 @@ module.exports = function(app) {
     });
   });
 
-
+ app.get("/newgame/", (req, res)=>{
+   res.render("newGame")
+ })
   // Load example page and pass in an example by id
-  app.get("/test/login",(req,res)=>{
-    res.render("testLogin")
+  app.get("/login",(req,res)=>{
+    res.render("login")
   })
   app.get("/test/:id", (req,res)=>{
     db.Character.findOne({
@@ -49,7 +55,7 @@ module.exports = function(app) {
    
   })
   app.get('/api/character/create', (req,res)=>{
-    res.render('testLogin1')
+    res.render('characterCreate')
   })
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
