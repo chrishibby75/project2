@@ -3,11 +3,15 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", {
+      layout: 'main'
+    });
   });
 
   app.get("/start", function(req, res) {
-    res.render("index");
+    res.render("index",  {
+      layout: 'main'
+    });
   });
 
   app.get("/resume", function(req, res) {
@@ -23,11 +27,15 @@ module.exports = function(app) {
   });
 
  app.get("/newgame/", (req, res)=>{
-   res.render("newGame")
+   res.render("newGame",  {
+    layout: 'main'
+  })
  })
   // Load example page and pass in an example by id
   app.get("/login",(req,res)=>{
-    res.render("login")
+    res.render("login",  {
+      layout: 'main'
+    })
   })
   app.get("/game/:id", (req,res)=>{
     db.Character.findOne({
@@ -36,10 +44,8 @@ module.exports = function(app) {
       }
     }).then((data)=>{
       hbsObject = {data: data}
-      res.render("test", {
-        hbsObject,
-        layout:'game'
-      })
+      res.render("test", hbsObject)
+    
 
     }
     )
@@ -50,13 +56,15 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(data=>{
-      hbsObject= {data:data}
+      hbsObject= {data: data}
       res.render('testshop', hbsObject)
     })
    
   })
   app.get('/api/character/create', (req,res)=>{
-    res.render('characterCreate')
+    res.render('characterCreate', {
+      layout: 'main'
+    })
   })
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

@@ -51,13 +51,35 @@ p {
  opacity: 0.8;
 }
 /* scryin message div*/
+#next{
+  position: absolute;
+  top: 80%;
+  left: 68%;
+  font-family: 'Times New Roman', Times, serif;
+  background-color:#fdeaff 
+}
+/*Button to shop*/
+#shop{
+  position: absolute;
+  top: 70%;
+  left: 65%;
+  padding-left: 2%;
+  padding-right: 2%
+}
+/* all the buttons that appear once gameplay starts*/
+.gamebut{
+  font-family: 'Times New Roman', Times, serif;
+  background-color:#fdeaff 
+}
 #msg{
   position:relative;
   top: 80%;
   left: 25%;
   padding:2%;
-  background-color:#a88657;
-  border: double #878787 3px
+  opacity: 0.9;
+  background-color:#fdeaff;
+  border: double #878787 3px;
+  font-family: 'Times New Roman', Times, serif;
 }
 img {  
   height: 180px;

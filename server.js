@@ -17,7 +17,7 @@ app.use(method("_method"));
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "game"
   })
 );
 app.set("view engine", "handlebars");

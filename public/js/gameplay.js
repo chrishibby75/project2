@@ -32,26 +32,32 @@ $('#buy').on('click', function(){
 })
     var turn = 0
     $("#next").on("click", function () {
-        gameboi(turn, turn++)
-        console.log(turn)
+        $('#msg').empty();
+        gameboi(turn, turn++);
+        console.log(turn);
         
 
     })
 
     $(function () {
-        showText("#msg", dialogue[turn], 0, 200);   
+        showText("#msg", dialogue[turn], 0, 100);   
       })
     
 
     function gameboi(turn) {
         switch (turn) {
             case 0:
-                $("#textbox").html(dialogue[turn])
+            $(function () {
+                showText("#msg", dialogue[turn], 0, 100);   
+              })
                 //buttons that on click change tthe turn ++ 
                 
                 break;
             case 1:
-                $("#textbox").html(dialogue[4])
+            $(function () {
+                $('#next').hide
+                showText("#msg", dialogue[4], 0, 100);   
+              })
                 
                 break;
                 
