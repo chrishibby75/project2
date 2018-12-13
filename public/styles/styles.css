@@ -1,18 +1,30 @@
 .list-group-item {
   line-height: 2.5;
 }
+.begin{
+  margin-top: 15%;
+  margin-right: 5%;
+}
+.borders{
+  border-image:"/imgf/border.png" 25 25 round
 
-body{
+}
+#hat{
   background-image: url("/imgf/wizardbg.jpg");
   background-size:cover;
+  
+  border-image: url('/imgf/border.png') 2px
 }
 
 p { 
+  margin-left: 15%;
+  margin-top: 2%;
   font-family:fantasy;
   size: 28px;
   font-size: 45px;
   color: red;
  text-align: left;
+ text-shadow: 1px .5px black
 }
 
 img {  
@@ -21,9 +33,31 @@ img {
   opacity: 0.3;
   filter: alpha(opacity=50);  
 }
-
+#logo{
+  
+}
+a{
+  color: #878787;
+  text-decoration-color: none;
+}
+a:hover{
+  color: red;
+  text-decoration:none
+}
+.navigate{
+margin-left:45%;
+margin-top: 2.5%;
+font-size: 22px;
+font-family:fantasy;
+height: 6%;
+radius: 0.9;
+text-align: left;
+text-shadow: 1px .5px black;
+padding: 1%;
+background-color:#f3c6ff;
+opacity: .75
+}
 #navbarNav {
-  font-size: 25px;
-  font-family:fantasy;
+
 
 }
