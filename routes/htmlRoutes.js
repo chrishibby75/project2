@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index", {css:['/styles/styles.css']});
+    res.render("index");
   });
   app.get("/1", (req,res)=>{
     res.render("index")
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/login",(req,res)=>{
-    res.render("login", {css:['/styles/styles.css']})
+    res.render("login")
   })
   app.get("/test/:id", (req,res)=>{
     db.Character.findOne({
