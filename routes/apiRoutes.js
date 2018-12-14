@@ -159,10 +159,16 @@ module.exports = function (app) {
     })
   })
 
-  app.get("api/game/password", function(req,res) {
-    for (var i = 0; i < password.length; i++) {
-
-    }
+  app.post("/api/game/resume", (req, res) => {
+    db.Game.findOne({ where: 
+      {
+        game_name: req.body.game_name.trim(),
+        password: req.body.password.trim()
+      }
+    }).then((data => {
+      console.log(data);
+      res.redirect('/game/' + data.id);
+    }))
   })
 
 }
