@@ -107,8 +107,8 @@
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
   
-  border: 15px solid transparent;
-  border-image: url("/imgf/border.png") 30 round;
+  border: 30px transparent solid ;
+  border-image: url("/imgf/border2.png") 80 60 60 stretch;
   background-size:cover;
   height: 600px;
   width: 960px
