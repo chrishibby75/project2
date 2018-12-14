@@ -115,7 +115,7 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       }
-    }).then()
+    }).then(res.data)
     })
   })
   app.put('/test/shop/character/weapons/:id', (req,res)=>{
@@ -137,7 +137,17 @@ module.exports = function (app) {
       where: {
         id: id
       }
-    }).then(res.redirect('/test/shop/'+ id))
+    }).then(()=>{
+      db.Character.findOne({
+        where:{
+          id: id
+        }
+      }).then(data=>{
+      console.log(data.id + " what the fuck is going on")
+      hbsObject = {data:data}
+      res.render("testshop", hbsObject)
+      })
+    })
   })
   ////
   ///route for creating a new character

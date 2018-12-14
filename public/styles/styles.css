@@ -95,6 +95,14 @@
   color: #fdeaff 
 }
 
+#hp1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: #fdeaff;
+  position: absolute;
+  top: 12.5%
+}
+
 #gold{
    font-family: 'Times New Roman', Times, serif;
    font-size: 32px;
@@ -107,8 +115,8 @@
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
   
-  border: 30px transparent solid ;
-  border-image: url("/imgf/border2.png") 80 60 60 stretch;
+  /*border: 30px transparent solid ;
+  border-image: url("/imgf/border2.png") 80 60 60 stretch;*/
   background-size:cover;
   height: 600px;
   width: 960px

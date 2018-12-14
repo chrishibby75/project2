@@ -7,56 +7,55 @@ var dialogue = [
     "You narrowly escaped the bandits!",
     "You escaped the bandits and grabbed 300 gold!",
     "The bandits beat you up you lost 40 HP",
-    "What do you want to do?"
+    "What do you want to do?",
+    "You fired a crossbow bolt, grabbed 400 gold from the bandits and escaped!",
+    "The crossbow bold distracted the bandits and you got away"
 ];
 
 ///front end javascript logic
 
 //function for video game text
 var encounterChance = Math.random()
-var showText = function (target, message, index, interval) {
-    if (index < message.length) {
-        $(target).append(message[index++]);
-        setTimeout(function () {
-            showText(target, message, index, interval);
-        }, interval);
-    }
-}
-var id = $("#characterName").data('name')
+var showText = function(target, message, index, interval) {
+  if (index < message.length) {
+    $(target).append(message[index++]);
+    setTimeout(function() {
+      showText(target, message, index, interval);
+    }, interval);
+  }
+};
+var encounterChance = Math.random();
+var id = $("#characterName").data("name");
 $(document).ready(function () {
-    var turn = parseInt($("#turn").data('turn'))
-    $("#adventure").hide();
-    $("#shop").hide();
-    $('#items').hide();
-    $("#run").hide();
-    $("#useWeapon").hide()
-    $('#buy').on('click', function () {
-        $('#items').show()
-        $("#buy").hide()
+  var turn = parseInt($("#turn").data("turn"));
+  $("#adventure").hide();
+  $("#shop").hide();
+  $("#items").hide();
+  $("#run").hide();
+  $("#useWeapon").hide();
+  $("#buy").on("click", function() {
+    $("#items").show();
+    $("#buy").hide()
 
-    })
-    gameboi(turn)
+  });
+  gameboi(turn);
 
-    $("#next").on("click", function () {
-        turn++
-        $('#msg').empty();
+  $("#next").on("click", function() {
+    turn++;
+    $("#msg").empty();
+    gameboi(turn, updateTurn());
+    console.log(turn);
+  });
 
-        gameboi(turn, updateTurn());
-        console.log(turn)
+// showText("#msg", dialogue[turn], 0, 100);   
 
-    })
-
-    //  showText("#msg", dialogue[turn], 0, 100);   
-
-
-
-    function gameboi(turn) {
-        console.log('yeppers this is the turn' + turn)
-        switch (turn) {
-            case 0:
-                $(function () {
-                    showText("#msg", dialogue[turn], 0, 75);
-                    turn++
+  function gameboi(turn) {
+    console.log('yeppers this is the turn' + turn);
+    switch (turn) {
+    case 0:
+        $(function() {
+        showText("#msg", dialogue[turn], 0, 75);
+        turn++;
 
                 })
                 //buttons that on click change tthe turn ++ 
@@ -73,7 +72,7 @@ $(document).ready(function () {
                 break;
             case 2:
                 showText("#msg", dialogue[3], 0, 100);
-                //encounter()
+
                 break;
 
             case 3:
@@ -87,22 +86,33 @@ $(document).ready(function () {
                 break;
         }
 
-        $("#adventure").on("click", function () {
-            console.log(turn)
-            turn++
-            $("#adventure").hide()
-            $("#msg").empty()
-            $("#shop").hide()
-            $("#useWeapon").show();
-            $("#run").show()
-            $('.gameCont').css("background-image", "url('/imgf/insideCave.jpg')")
-            console.log(turn)
-
-
-            gameboi(turn, updateTurn())
-        })
+       
+      
     }
+    $("#adventure").on("click", function () {
+        console.log(turn)
+        turn++
+        $("#adventure").hide()
+        $("#msg").empty()
+        $("#shop").hide()
+        $("#useWeapon").show();
+        $("#run").show()
+        $('.gameCont').css("background-image", "url('/imgf/insideCave.jpg')")
+        console.log(turn)
+        gameboi(turn, updateTurn())
+    })
 
+    $("#run").on("click", function () {
+         encounter(encounterChance);
+        
+    })
+
+    $("#useWeapon").on("click", function(){
+        useWeapon()
+    })
+    $("#buy1").on("click", function(){
+        setTimeout(alert('fuckyou'), 1000)
+    })
     updateTurn = function () {
         //turn++
         var id = $("#characterName").data('name')
@@ -112,39 +122,38 @@ $(document).ready(function () {
         }).then()
     }
 })
-encounter = (assets, hungry) => {
-    if (!assets, !hungry) {
-        if (encounterChance < 0.33333) {
+encounter = function(encounterChance) {
+    
+    console.log(encounterChance);
+    $("#msg").empty();
 
-            $("#textbox").html(dialogue[5])
-        } else if (encounterChance < 0.6666) {
-            getGold()
+    if (encounterChance < 0.33333) {
+        showText("#msg", dialogue[5], 0, 100);
+        return;
+    } else if (encounterChance < 0.6666) {
+        getGold()
+        showText("#msg", dialogue[6], 0, 100);
+        return
+    } else {
+        //if they end up taking damage
+        showText("#msg", dialogue[7], 0, 100);
+        takeDamage()
+        return
 
-        } else {
-            //if they end up taking damage
-            takeDamage()
-
-        }
-    } else if (assets) {
-        if (encounterChance < 0.6) {
-            turn++
-            //escape
-            $("textbox").html(dialogue[5])
-        } else {
-            turn++
-            $("textbox").html(dialogue[6])
-        }
-    } else if (hungry) {
-        if (encounterChance < 0.6) {
-            turn++
-            $("#textbox").html(dialogue[5])
-        } else {
-            turn++
-            $("#textbox").html(dialogue[7])
-        }
     }
-    return
 }
+
+useWeapon = function(){
+    if (encounterChance < 0.65){
+        getGold();
+        showText("#msg", dialogue[9])
+    }
+    else {
+        showText("#msg", dialogue[10], 0, 100)
+    }
+}
+
+
 timeboi = function () {
     var time = 0
     console.log('timeboi')
@@ -152,19 +161,17 @@ timeboi = function () {
 }
 getGold = function () {
     var id = $('#characterName').data('name')
-    $.ajax('/character/gold/' + id, {
-        type: 'PUT'
+  $.ajax("/character/gold/" + id, {
+    type: 'PUT'
     }).then($('#textbox').html(dialogue[6]))
 
-}
-takeDamage = function () {
-    var id = $("#characterName").data('name')
-    $.ajax('/character/hp/' + id, {
-        type: 'PUT',
-        hp: 'no'
+};
+takeDamage = function() {
+  var id = $("#characterName").data('name')
+  $.ajax('/character/hp/' + id, {
+    type: 'PUT',
+    hp: 'no'
 
-
-
-    }).then($("#textbox").html(dialogue[7]));
+  }).then($("#textbox").html(dialogue[7]));
 
 }
