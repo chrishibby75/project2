@@ -63,7 +63,7 @@ module.exports = function(app) {
   })
   app.get('/api/character/create', (req,res)=>{
     res.render('characterCreate', {
-      layout: 'main'
+      layout: 'icantbeliveimdoingthis'
     })
   })
   // Render 404 page for any unmatched routes

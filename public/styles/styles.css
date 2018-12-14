@@ -5,30 +5,53 @@
   margin-top: 15%;
   margin-right: 5%;
 }
-.borders{
-  border-image:"/imgf/border.png" 25 25 round
+
+#items{
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  background-color:#fdeaff;
+  border: double #878787 3px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-left: 1%;
+  padding-right: 1%;
 
 }
-
-
 #indexbg {
 
   background-image: url("public/imgf/wizardbg.jpg");
-  background-size:cover;
+  background-size:cover; 
 }
 
 #characterbg {
-  background-image: url("public/imgf/characters.jpg");
-  background-size:auto;    
+  background-image: url("/imgf/characters.jpg");
 }
-
+.cardiguess{
+  height: 295px;
+  width: 100%;
+}
 #loginbg {
-  background-image: url("public/imgf/login.jpg");
-
+  
+  background-image: url("/imgf/login.jpg");
+  
+}
+.welcome{
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  font-size: 42px;
+  font-family: times;
+  color: #d8d8d8;
+  text-shadow: 1px .5px #918e91
+}
 .formZ{
   margin-left: 20%;
-  margin-top: 5%
+  margin-top: 15%
   
+}
+.formZ1{
+  margin-left: 20%;
+  margin-top: 5%;
 }
 
 .subBut{
@@ -42,6 +65,12 @@
   font-size: 24px;
   text-shadow: 1px .5px #918e91
 }
+.labelhead1{
+  font-family: 'Times New Roman', Times, serif;
+  color: #d8d8d8;
+  font-size: 24px;
+  text-shadow: 1px .5px #918e91
+}
 .hat{
   background-image: url("/imgf/wizardbg.jpg");
 
@@ -52,7 +81,7 @@
 
 
 #storebg{
-  background-image: url("public/imgf/store2bg.jpg");
+  background-image: url("/imgf/store2bg.jpg");
   background-size:cover;
 }
 
@@ -68,23 +97,38 @@
   height: 600px;
   width: 960px
 }
-
-p { 
-  margin-left: 25%;
-  margin-top: 2%;
-  font-family:fantasy;
-  size: 28px;
-  font-size: 45px;
-  color: red;
- text-align: left;
- text-shadow: 1px .5px black;
- opacity: 0.8;
+.gameShop{
+  background-image: url("/imgf/store2bg.jpg");
+  height: 600px;
+  width: 960px
 }
 
+p { 
+  margin-left: 15%;
+  margin-top: 2%;
+  font-family:'Times New Roman', Times, serif;
+  size: 28px;
+  font-size: 45px;
+  
+ text-align: left;
+ color: #d8d8d8;
+ text-shadow: 1px .5px #918e91;
+ opacity: 0.8;
+}
+.shophead{
+  position: absolute;
+  left: 36%;
+  top: 25%;
+  font-family: 'Times New Roman', Times, serif;
+  color: #514d4d;
+  text-shadow: 1px .5px#918e91
+}
 #logo {  
   height: 150px;
   width: 150px;
-
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
+}
 /* scryin message div*/
 #next{
   position: absolute;
@@ -94,12 +138,33 @@ p {
   background-color:#fdeaff 
 }
 /*Button to shop*/
+#adventure{
+  position: absolute;
+  top: 70%;
+  right: 65%;
+  padding-left: 1%;
+  padding-right: 1%
+}
 #shop{
+  position: absolute;
+  top: 80%;
+  left: 65%;
+  padding-left: 2%;
+  padding-right: 2%
+}
+#no{
+  position: absolute;
+  top: 80%;
+  right: 65%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+#buy{
   position: absolute;
   top: 70%;
   left: 65%;
   padding-left: 2%;
-  padding-right: 2%
+  padding-right: 2%;
 }
 /* all the buttons that appear once gameplay starts*/
 .gamebut{
@@ -120,13 +185,18 @@ img {
   height: 180px;
   width: 180px;
 
-  opacity: 0.3;
-  filter: alpha(opacity=50);  
+  
+}
+.imga{
+   height: 90px;
+   width: 90px
 }
 #logo1{
   margin-left: 10%;
   height: 20%;
-  width: 20%
+  width: 20%;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
 }
 a{
   color: #878787;
@@ -143,21 +213,43 @@ margin-top: 2.5%;
 font-size: 22px;
 font-family:fantasy;
 height: 6%;
-radius: 0.9;
+border-radius: 2.5%;
 text-align: left;
 text-shadow: 1px .5px black;
 padding: 1%;
 background-color:#f3c6ff;
-opacity: .75
+opacity: .65
 }
-
+.navigate1{
+  position: absolute;
+  margin-left: 
+  68%;
+  top: 2.5%;
+  text-align: center;
+  font-size: 22px;
+  font-family: fantasy;
+  height: 6%;
+  text-shadow: 1px .5px black;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: #f3c6ff;
+  opacity: .65
+}
 #navbarNav {
   font-size: 25px;
   font-family:fantasy;
   text-align-last: center;
 }
 
-
+.logo2{
+  position: absolute;
+  left: 15%;
+  top: .5%;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
+}
 
 #submitBtn {
   font-size: 25px;
@@ -172,7 +264,7 @@ opacity: .75
 #assetsbg h5 {
   color: aliceblue;
   font-family:fantasy;
-
+}
 .navigate2{
   font-size: 18px;
   font-family:fantasy;
