@@ -42,7 +42,7 @@ module.exports = function (app) {
   //figure out res redirect
   ///reduce working
   app.put("/character/hp/:id", (req, res) => {
-    console.log(req.body.hp)
+    
     id = req.params.id
     db.Character.findOne({
       where: {
@@ -156,6 +156,20 @@ module.exports = function (app) {
       }).then((data) => {
         res.redirect("/game/" + id)
       })
+    })
+  })
+  app.put('/turnUpdate/:id/:turn', (req,res)=>{
+    turn = req.params.turn
+      console.log("BIBIJOJBOIFJBOJOIDSJOIJOJOJOIJOIJ" + turn)
+    db.Game.update({
+      area: turn
+    
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then((data)=>{
+      console.log(data)
     })
   })
 

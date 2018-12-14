@@ -89,10 +89,26 @@
 #selectGame {
   background-color: black;
 }
+#hp {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: #fdeaff 
+}
 
+#gold{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 32px;
+   color: #fdeaff;
+   position: absolute;
+   left: 70%;
+   top: 12.5%
+}
 
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
+  
+  border: 15px solid transparent;
+  border-image: url("/imgf/border.png") 30 round;
   background-size:cover;
   height: 600px;
   width: 960px
@@ -138,6 +154,20 @@ p {
   background-color:#fdeaff 
 }
 /*Button to shop*/
+#useWeapon{
+  position: absolute;
+  top: 70%;
+  left:65%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#run{
+  position: absolute;
+  top: 70%;
+  right: 65%;
+  padding-left: 1%;
+  padding-right: 1%
+}
 #adventure{
   position: absolute;
   top: 70%;
@@ -147,7 +177,7 @@ p {
 }
 #shop{
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 65%;
   padding-left: 2%;
   padding-right: 2%
@@ -161,7 +191,7 @@ p {
 }
 #buy{
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 65%;
   padding-left: 2%;
   padding-right: 2%;

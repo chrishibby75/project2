@@ -1,10 +1,11 @@
 <div class="container w3-animate-opacity gameShop">
 <div class='shophead'>
-<h1> What would you like to buy?</h1>
+<h1> What would you like to do?</h1>
 </div>
 <button id='buy'>Buy</button>
-<button id='no'><a href="/test/{{data.id}}">Leave</a></button>
-
+<button id='no'><a href="/game/{{data.id}}">Leave</a></button>
+<div id='hp'>hp: {{data.hp}}</div>
+<div id='gold'>gold: {{data.gold}}</div>
 <div class='row' id='items'>
     <form method='POST' action="character/weapons/{{data.id}}?_method=PUT">
         <h3 name='item' value='assets'>Weapons: 800G</h3>

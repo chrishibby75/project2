@@ -24,17 +24,23 @@ var id = $("#characterName").data('name')
 
 var encounterChance = Math.random()
 $(document).ready(function () {
+    var turn = parseInt($("#turn").data('turn'))  
 $("#adventure").hide();
 $("#shop").hide();
 $('#items').hide();
+$("#run").hide();
+$("#useWeapon").hide()
 $('#buy').on('click', function(){
     $('#items').show()
     $("#buy").hide()
+    
 })
-    var turn = 0
+    //var turn = 0
+    
+     
     $("#next").on("click", function () {
         $('#msg').empty();
-        gameboi(turn, turn++);
+        gameboi(turn,turn++, updateTurn());
         console.log(turn);
         
 
@@ -79,7 +85,22 @@ $('#buy').on('click', function(){
                 break;
         }
 
-        console.log(turn)
+    $("#adventure").on("click", function(){
+        $("#adventure").hide()
+        $("#shop").hide()
+        $("#useWeapon").show();
+        $("#run").show()
+        $('.gameCont').css("background-image", "url('/imgf/insideCave.jpg')")
+    })
+    }
+
+    updateTurn = function(){
+        //turn++
+        var id = $("#characterName").data('name')
+        $.ajax('/turnUpdate/'+ id+"/"+turn, {
+            type: 'PUT',
+            
+        }).then()
     }
 })
 encounter = (assets, hungry) => {
