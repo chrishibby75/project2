@@ -159,6 +159,18 @@ module.exports = function (app) {
     })
   })
 
+  app.post("/api/game/resume", (req, res) => {
+    db.Game.findOne({ where: 
+      {
+        game_name: req.body.game_name.trim(),
+        password: req.body.password.trim()
+      }
+    }).then((data => {
+      console.log(data);
+      res.redirect('/game/' + data.id);
+    }))
+  })
+
 }
 
 
