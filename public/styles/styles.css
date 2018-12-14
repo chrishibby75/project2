@@ -6,7 +6,17 @@
   margin-right: 5%;
 }
 
+#items{
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  background-color:#fdeaff;
+  border: double #878787 3px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-left: 1%;
+  padding-right: 1%;
 
+}
 #indexbg {
 
   background-image: url("public/imgf/wizardbg.jpg");
@@ -87,6 +97,11 @@
   height: 600px;
   width: 960px
 }
+.gameShop{
+  background-image: url("/imgf/store2bg.jpg");
+  height: 600px;
+  width: 960px
+}
 
 p { 
   margin-left: 15%;
@@ -100,10 +115,19 @@ p {
  text-shadow: 1px .5px #918e91;
  opacity: 0.8;
 }
-
+.shophead{
+  position: absolute;
+  left: 36%;
+  top: 25%;
+  font-family: 'Times New Roman', Times, serif;
+  color: #514d4d;
+  text-shadow: 1px .5px#918e91
+}
 #logo {  
   height: 150px;
   width: 150px;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
 }
 /* scryin message div*/
 #next{
@@ -114,12 +138,33 @@ p {
   background-color:#fdeaff 
 }
 /*Button to shop*/
+#adventure{
+  position: absolute;
+  top: 70%;
+  right: 65%;
+  padding-left: 1%;
+  padding-right: 1%
+}
 #shop{
+  position: absolute;
+  top: 80%;
+  left: 65%;
+  padding-left: 2%;
+  padding-right: 2%
+}
+#no{
+  position: absolute;
+  top: 80%;
+  right: 65%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+#buy{
   position: absolute;
   top: 70%;
   left: 65%;
   padding-left: 2%;
-  padding-right: 2%
+  padding-right: 2%;
 }
 /* all the buttons that appear once gameplay starts*/
 .gamebut{
@@ -140,13 +185,18 @@ img {
   height: 180px;
   width: 180px;
 
-  opacity: 0.3;
-  filter: alpha(opacity=50);  
+  
+}
+.imga{
+   height: 90px;
+   width: 90px
 }
 #logo1{
   margin-left: 10%;
   height: 20%;
-  width: 20%
+  width: 20%;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
 }
 a{
   color: #878787;
@@ -196,7 +246,9 @@ opacity: .65
 .logo2{
   position: absolute;
   left: 15%;
-  top: .5%
+  top: .5%;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
 }
 
 #submitBtn {
