@@ -24,8 +24,9 @@ var id = $("#characterName").data('name')
 
 var encounterChance = Math.random()
 $(document).ready(function () {
-    
-$('#items').hide()
+$("#adventure").hide();
+$("#shop").hide();
+$('#items').hide();
 $('#buy').on('click', function(){
     $('#items').show()
     $("#buy").hide()
@@ -55,7 +56,9 @@ $('#buy').on('click', function(){
                 break;
             case 1:
             $(function () {
-                $('#next').hide
+                $("#adventure").show()
+                $('#shop').show()
+                $('#next').hide()
                 showText("#msg", dialogue[4], 0, 100);   
               })
                 
