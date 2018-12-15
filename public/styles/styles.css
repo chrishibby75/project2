@@ -109,13 +109,25 @@ p {
 }
 #over{
   position: absolute;
-  top: 40%;
-  left: 25%;
+  top: 35%;
+  left: 45%;
+}
+#playag{
+  position: absolute;
+  top: 35%;
+  left: 45%;
+}
+#won{
+  position:absolute;
+  top: 25%;
+  left: 28%;
+  font-size: 20px;
+  color: #fdeaff 
 }
 .overmg{
   position: absolute;
   top: 25%;
-  left: 20%;
+  left: 28%;
   font-size: 20px;
   color: #fdeaff 
 }
@@ -154,7 +166,9 @@ p {
   color: #514d4d;
   text-shadow: 1px .5px#918e91
 }
-
+#potionZ{
+  position: absolute;
+}
 #logo {  
   height: 150px;
   width: 150px;
@@ -425,6 +439,13 @@ opacity: .65
 
 
 }
+@media screen and (max-width: 1060px){
+  .navigate{
+    position:absolute;
+    top: 2.5%;
+    left: 30%
+  }
+}
 
 @media screen and (max-width: 992px) {
   .hat
@@ -456,6 +477,74 @@ opacity: .65
         height: 100px;
         width: 100px;
     }
+    .formZ1{
+      position:absolute;
+      top: 45%;
+      left: 10%
+    }
+    .gameCont{
+      width: 100%;
+      height: 325px;
+    }
+    #msg{
+      position: absolute;
+      top: 60%
+      
+    }
+    #boi{
+      position: absolute;
+      top:25%
+    }
+    #adventure{
+      top: 75%
+    }
+    #shop{
+      top: 75%;
+    }
+    #run{
+      top:75%
+    }
+    #useWeapon{
+      top: 75%
+    }
+    #next{
+      position:absolute;
+      top: 65%;
+      left: 75%
+    }
+    #gold{
+      position: absolute;
+      left: 65%
+    }
+    #items{
+        height: 150px;
+        width: 500px;
+        left: 20%
+
+
+    }
+    .shophead{
+      top: 20%;
+      left: 22.5%
+    }
+    .imga{
+        height: 50px;
+        width: 50px
+    }
+    .navigate{
+      position:absolute;
+      margin-top: 5%;
+      padding-top:1%;
+      padding-bottom:1%;
+      height: 80px
+    }
+   .navigate1{
+     position:absolute;
+     margin-top: 1.5%;
+     padding-top: 1%;
+     padding-bottom: 1%;
+     height: 80px
+   }
   
   }
 
