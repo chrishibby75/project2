@@ -64,7 +64,8 @@ $(document).ready(function () {
   $("#useWeapon").hide();
   $("#won").hide();
   $("#fight").hide();
-  $("#sneak").hide()
+  $("#sneak").hide();
+  $("#playag").hide();
   $("#buy").on("click", function() {
     $("#items").show();
     $("#buy").hide()
@@ -78,6 +79,7 @@ $(document).ready(function () {
     turn++;
     $("#msg").empty();
     gameboi(turn, updateTurn());
+    $("#monsters").hide()
     
   }); 
   //the logic for taking turn logics
@@ -104,18 +106,24 @@ $(document).ready(function () {
                 
                 break;
             case 4:
+                $("#monster").show()
+                $("#monster").html("<img src='" + monsters[1] + "'>")
                 battleLoad(1)
                 break;
             case 5:
                 townLoad(2);
                 break;
             case 6:
+            $("#monster").show()
+            $("#monster").html("<img src='" + monsters[2] + "'>")
                 battleLoad(2)
                 break;
             case 7:
                 townLoad(3)
                 break;
             case 8:
+            $("#monster").show() 
+            $("#monster").html("<img src='" + monsters[3] + "'>")
                 battleLoad(3)
                 break;
             case 9:
@@ -145,17 +153,19 @@ $(document).ready(function () {
          encounter();
          $("#useWeapon").hide();
          $("#run").hide();
+         $("#monster").hide();
     })
     $(".hi").on("click", function(){
         var eat = $(".hit").data("eat")
         eat -1;
         $(".hi").html("Eat: " + eat)
-        console.log("eofofeoifjofj")
+    
     })
     //if the character chooses to use weapons
     //it gives them a 60% percent chance of winning and getting some gold
     $("#useWeapon").on("click", function(){
         var weapon = $("#useWeapon").data("weapon")
+        $("#monster").hide()
         if(weapon == 0|| weapon =='0'){
             alert("You Dont Have Enough Weapons for that!")
         }
@@ -205,30 +215,40 @@ finalGame = function(){
     $("#fight").show();
     $("#sneak").show();
     $("#next").hide();
+    
     showText("#msg", "The final castle how will you get the sword?", 0, 100)
   
     $("#sneak").on("click", function(){
         var random1 = Math.random();
         if (random1 > 0.6){
-            $(".gameCount").empty();
-            $("#won").show()
+            $(".gameCont").empty();
+            $("#won").show();
+            $("#playag").show()
+            $('.gameCont').css("background-image", "url('/imgf/excal.jpg')")
+
         }
         else{
             $(".gameCont").empty()
             $("#over").show()
            $("#overmg").show()
+           $('.gameCont').css("background-image", "url('/imgf/end.jpg')")
+
         }
     })
     $("#fight").on('click', function(){
         var random1 = Math.random();
         if (random1 > 0.6){
-            $(".gameCount").empty();
-            $("#won").show()
+            $(".gameCont").empty();
+            $("#won").show();
+            $("#playag").show();
+            $('.gameCont').css("background-image", "url('/imgf/excal.jpg')")
         }
         else{
-            $(".gameCont").empty()
-            $("#over").show()
-           $("#overmg").show()
+            $(".gameCont").empty();
+            $("#over").show();
+           $("#overmg").show();
+           $('.gameCont').css("background-image", "url('/imgf/end.jpg')");
+
         }
     })
 
@@ -290,6 +310,7 @@ getGold = function () {
   var id = $('#characterName').data('name')
   gold = $("#gold").data("gold");
   gold1 = gold + 400;
+  $("#gold").data("gold", gold1)
   $("#gold").html("gold: "+ gold1)
   $.ajax("/character/gold/" + id, {
     type: 'PUT'
@@ -305,6 +326,8 @@ takeDamage = function() {
      $(".gameCont").empty()
      $("#over").show()
      $("#overmg").show()
+     $('.gameCont').css("background-image", "url('/imgf/end.jpg')")
+
   }
   else{
   var id = $("#characterName").data('name')
