@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes)=>{
                 len:[1,100]
             }
         },
+        sleepy:{
+            type:DataTypes.STRING,
+            defaultValue: "yes"
+        },
         hp: {
             type: DataTypes.INTEGER,
             defaultValue: 100

@@ -31,6 +31,9 @@ module.exports = function(app) {
     layout: 'main'
   })
  })
+ app.get("/gameover/", (req,res)=>{
+   res.render("login")
+ })
   // Load example page and pass in an example by id
   app.get("/login",(req,res)=>{
     res.render("login",  {
