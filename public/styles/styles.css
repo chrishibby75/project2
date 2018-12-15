@@ -368,14 +368,24 @@ opacity: .65
   background-color:   #a382a3;
   padding-bottom: .5%;
   padding-top: .5%;
+  
 }
 
-/* media responsive */
+/*Media Queries */
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 300px) {
+  #indexbg p,
+  #characterbg p,
+  #loginbg p,
+  #storebg p,
+  #navbarNav,
+  #logo,
+  #login
+   {
+     
+      font-size: 25px;
+      height: 100px;
+      width: 100px;
+  }
+} 
 
-}
-
-@media screen and (max-width: 768px) {
-
-}
