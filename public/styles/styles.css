@@ -1,9 +1,46 @@
-.list-group-item {
-  line-height: 2.5;
+/* tags */
+a{
+  color: #878787;
+  text-decoration-color: none;
 }
-.begin{
-  margin-top: 15%;
-  margin-right: 5%;
+a:hover{
+  color:#514d4d;
+  text-decoration:none;
+  opacity: 100%
+}
+
+img {  
+  height: 180px;
+  width: 180px;
+  background-repeat: no-repeat;  
+}
+
+p { 
+  margin-left: 15%;
+  margin-top: 2%;
+  font-family:'Times New Roman', Times, serif;
+  size: 28px;
+  font-size: 45px;
+  text-align: left;
+  color: #d8d8d8;
+  text-shadow: 1px .5px #918e91;
+  opacity: 0.8;
+}
+
+/* ids */
+#submitBtn {
+  font-size: 25px;
+  font-family:fantasy;
+}
+
+#assetsbg {
+  background-color: black;
+  width: 10rem;
+}
+
+#assetsbg h5 {
+  color: aliceblue;
+  font-family:fantasy;
 }
 
 #items{
@@ -15,8 +52,8 @@
   font-family: 'Times New Roman', Times, serif;
   padding-left: 1%;
   padding-right: 1%;
-
 }
+
 #indexbg {
 
   background-image: url("public/imgf/wizardbg.jpg");
@@ -26,15 +63,182 @@
 #characterbg {
   background-image: url("/imgf/characters.jpg");
 }
+
+#loginbg {
+  background-image: url("/imgf/login.jpg");
+  
+}
+
+#storebg{
+  background-image: url("/imgf/store2bg.jpg");
+  background-size:cover;
+}
+
+#selectGame {
+  background-color: black;
+}
+#hp {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: #fdeaff 
+}
+
+#hp1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: #fdeaff;
+  position: absolute;
+  top: 12.5%
+}
+
+
+#gold{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 32px;
+   color: #fdeaff;
+   position: absolute;
+   left: 70%;
+   top: 12.5%
+}
+
+.gameCont{
+  background-image: url("/imgf/wizardbg.jpg");
+  
+  /*border: 30px transparent solid ;
+  border-image: url("/imgf/border2.png") 80 60 60 stretch;*/
+  background-size:cover;
+  height: 600px;
+  width: 960px
+}
+.gameShop{
+  background-image: url("/imgf/store2bg.jpg");
+  height: 600px;
+  width: 960px
+}
+
+p { 
+  margin-left: 15%;
+  margin-top: 2%;
+  font-family:'Times New Roman', Times, serif;
+  size: 28px;
+  font-size: 45px;
+  
+ text-align: left;
+ color: #d8d8d8;
+ text-shadow: 1px .5px #918e91;
+ opacity: 0.8;
+}
+.shophead{
+  position: absolute;
+  left: 36%;
+  top: 25%;
+  font-family: 'Times New Roman', Times, serif;
+  color: #514d4d;
+  text-shadow: 1px .5px#918e91
+}
+
+#logo {  
+  height: 150px;
+  width: 150px;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
+}
+/* scryin message div*/
+#next{
+  position: absolute;
+  top: 80%;
+  left: 68%;
+  font-family: 'Times New Roman', Times, serif;
+  background-color:#fdeaff 
+}
+/*Button to shop*/
+#useWeapon{
+  position: absolute;
+  top: 70%;
+  left:65%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#run{
+  position: absolute;
+  top: 70%;
+  right: 65%;
+  padding-left: 1%;
+  padding-right: 1%
+}
+#adventure{
+  position: absolute;
+  top: 70%;
+  right: 65%;
+  padding-left: 1%;
+  padding-right: 1%
+}
+#shop{
+  position: absolute;
+  top: 70%;
+  left: 65%;
+  padding-left: 2%;
+  padding-right: 2%
+}
+#no{
+  position: absolute;
+  top: 80%;
+  right: 65%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+#buy{
+  position: absolute;
+  top: 80%;
+  left: 65%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+#gamescreen{
+  background-color: #a382a3
+}
+
+#msg{
+  position:relative;
+  top: 80%;
+  left: 25%;
+  padding:2%;
+  opacity: 0.9;
+  background-color:#fdeaff;
+  border: double #878787 3px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#navbarNav {
+  font-size: 25px;
+  font-family:fantasy;
+  text-align-last: center;
+}
+
+#logo1{
+  margin-left: 10%;
+  height: 20%;
+  width: 20%;
+  opacity: 0.3;
+  filter: alpha(opacity=50); 
+}
+
+/* classes */
+
+.list-group-item {
+  line-height: 2.5;
+}
+.begin{
+  margin-top: 15%;
+  margin-right: 5%;
+}
+
 .cardiguess{
   height: 295px;
   width: 100%;
 }
-#loginbg {
-  
-  background-image: url("/imgf/login.jpg");
-  
-}
+
 .welcome{
   position: absolute;
   left: 35%;
@@ -73,23 +277,9 @@
 }
 .hat{
   background-image: url("/imgf/wizardbg.jpg");
-
   background-size:cover;
-  
   border-image: url('/imgf/border.png') 2px
 }
-
-
-#storebg{
-  background-image: url("/imgf/store2bg.jpg");
-  background-size:cover;
-}
-
-
-#selectGame {
-  background-color: black;
-}
-
 
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
@@ -103,18 +293,6 @@
   width: 960px
 }
 
-p { 
-  margin-left: 15%;
-  margin-top: 2%;
-  font-family:'Times New Roman', Times, serif;
-  size: 28px;
-  font-size: 45px;
-  
- text-align: left;
- color: #d8d8d8;
- text-shadow: 1px .5px #918e91;
- opacity: 0.8;
-}
 .shophead{
   position: absolute;
   left: 36%;
@@ -123,90 +301,20 @@ p {
   color: #514d4d;
   text-shadow: 1px .5px#918e91
 }
-#logo {  
-  height: 150px;
-  width: 150px;
-  opacity: 0.3;
-  filter: alpha(opacity=50); 
-}
-/* scryin message div*/
-#next{
-  position: absolute;
-  top: 80%;
-  left: 68%;
-  font-family: 'Times New Roman', Times, serif;
-  background-color:#fdeaff 
-}
-/*Button to shop*/
-#adventure{
-  position: absolute;
-  top: 70%;
-  right: 65%;
-  padding-left: 1%;
-  padding-right: 1%
-}
-#shop{
-  position: absolute;
-  top: 80%;
-  left: 65%;
-  padding-left: 2%;
-  padding-right: 2%
-}
-#no{
-  position: absolute;
-  top: 80%;
-  right: 65%;
-  padding-left: 2%;
-  padding-right: 2%;
-}
-#buy{
-  position: absolute;
-  top: 70%;
-  left: 65%;
-  padding-left: 2%;
-  padding-right: 2%;
-}
+
 /* all the buttons that appear once gameplay starts*/
 .gamebut{
   font-family: 'Times New Roman', Times, serif;
   background-color:#fdeaff 
 }
-#msg{
-  position:relative;
-  top: 80%;
-  left: 25%;
-  padding:2%;
-  opacity: 0.9;
-  background-color:#fdeaff;
-  border: double #878787 3px;
-  font-family: 'Times New Roman', Times, serif;
-}
-img {  
-  height: 180px;
-  width: 180px;
 
-  
-}
+
 .imga{
    height: 90px;
    width: 90px
 }
-#logo1{
-  margin-left: 10%;
-  height: 20%;
-  width: 20%;
-  opacity: 0.3;
-  filter: alpha(opacity=50); 
-}
-a{
-  color: #878787;
-  text-decoration-color: none;
-}
-a:hover{
-  color:#514d4d;
-  text-decoration:none;
-  opacity: 100%
-}
+
+
 .navigate{
 margin-left:43%;
 margin-top: 2.5%;
@@ -237,11 +345,7 @@ opacity: .65
   background-color: #f3c6ff;
   opacity: .65
 }
-#navbarNav {
-  font-size: 25px;
-  font-family:fantasy;
-  text-align-last: center;
-}
+
 
 .logo2{
   position: absolute;
@@ -251,20 +355,7 @@ opacity: .65
   filter: alpha(opacity=50); 
 }
 
-#submitBtn {
-  font-size: 25px;
-  font-family:fantasy;
-}
 
-#assetsbg {
-  background-color: black;
-  width: 10rem;
-}
-
-#assetsbg h5 {
-  color: aliceblue;
-  font-family:fantasy;
-}
 .navigate2{
   font-size: 18px;
   font-family:fantasy;
@@ -272,9 +363,7 @@ opacity: .65
   margin-left: 55%;
   margin-top: 2%;
 }
-#gamescreen{
-  background-color: #a382a3
-}
+
 .gametop{
   background-color:   #a382a3;
   padding-bottom: .5%;
@@ -297,6 +386,6 @@ opacity: .65
       font-size: 25px;
       height: 100px;
       width: 100px;
-
   }
 } 
+

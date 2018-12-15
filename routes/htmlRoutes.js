@@ -44,8 +44,17 @@ module.exports = function(app) {
       }
     }).then((data)=>{
       hbsObject = {data: data}
-      res.render("test", hbsObject)
-    
+      //res.render("test", hbsObject)
+      db.Game.findOne({
+        where:{
+          id: data.id
+        }
+      }).then(data=>{
+        console.log("this is the data" +data.id)
+        hbsObject.data2 = data
+       console.log(hbsObject.data2)
+        res.render('test', hbsObject)
+      })
 
     }
     )
@@ -58,6 +67,7 @@ module.exports = function(app) {
     }).then(data=>{
       hbsObject= {data: data}
       res.render('testshop', hbsObject)
+    
     })
    
   })
