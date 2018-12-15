@@ -6,8 +6,8 @@ var dialogue = [
     "Bandits attack!",
     "What do you want to do?",
     "You narrowly escaped the bandits!",
-    "You escaped the bandits and grabbed 300 gold!",
-    "The bandits beat you up you lost 40 HP",
+    "You escaped the bandits and grabbed 400 gold!",
+    "The bandits beat you up you lost 45 HP",
     "What do you want to do?",
     "You fired a crossbow bolt, grabbed 400 gold from the bandits and escaped!",
     "The crossbow bolt distracted the bandits and you got away"
