@@ -16,6 +16,7 @@
   "production": {
     "username": "root",
     "password": "password",
+    "use_env_variable": "JAWSDB_URL",
     "database": "rpgame",
     "host": "127.0.0.1",
     "dialect": "mysql"
