@@ -4,7 +4,10 @@
     "password": "password",
     "database": "rpgame",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "scripts":{
+      "start": "node server js"
+    }
   },
   "test": {
     "username": "root",
@@ -19,6 +22,9 @@
     "use_env_variable": "JAWSDB_URL",
     "database": "rpgame",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "scripts":{
+      "start": "node server js"
+    }
   }
 }
