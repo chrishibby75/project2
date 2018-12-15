@@ -7,10 +7,11 @@
 <div id='hp'>hp: {{data.hp}}</div>
 <div id='gold'>gold: {{data.gold}}</div>
 <div class='row' id='items'>
-    <form method='POST' action="character/weapons/{{data.id}}?_method=PUT">
-        <h3 name='item' value='assets'>Weapons: 800G</h3>
+    <form method='POST' action="/test/shop/character/weapons/{{data.id}}?_method=PUT">
+        <h3 >Weapons: 800G</h3>
          <img class='imga' src="/imgf/crossbow.png"  alt="Card image cap">
         <input type='hidden' name='price' value='800'>
+        <input type='hidden' name='item' value="asset">
         <input type='hidden' name='money' value='{{data.gold}}'>
         <select name='quantity'>
             <option value="1">1</option>
@@ -22,9 +23,11 @@
         <button id= 'buy1' type='submit'>Buy</button>
     </form>
     <br>
-    <form method='POST' action="character/weapons/{{data.id}}?_method=PUT">
-        <h3 name='item' value='food'>| Food: 250G | </h3>
+    <form method='POST' action="/test/shop/character/weapons/{{data.id}}?_method=PUT">
+        <h3 >| Food: 250G | </h3>
+
         <img class='imga' src="/imgf/food.png">
+        <input type="hidden" name="item" value="food">
         <input type='hidden' name='price' value='250'>
         <input type='hidden' name='money' value='{{data.gold}}'>
         <select name='quantity'>
@@ -37,9 +40,10 @@
         <button id='buy1' type='submit'>Buy</button>
     </form>
     <br>
-    <form method='POST' action="character/weapons/{{data.id}}?_method=PUT">
-        <h3 name='item' value='potion'>Potion: 400G</h3>
+    <form method='POST' action="/test/shop/character/weapons/{{data.id}}?_method=PUT">
+        <h3 >Potion: 400G</h3>
         <img class='imga' src="/imgf/redpotion.png">
+        <input type='hidden' name='item' value="potion">
         <input type='hidden' name='price' value='400'>
         <input type='hidden' name='money' value='{{data.gold}}'>
         <select name='quantity'>

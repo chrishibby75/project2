@@ -127,11 +127,16 @@ $(document).ready(function () {
 
     $("#run").on("click", function () {
          encounter(encounterChance);
-        
+         $("#useWeapon").hide();
+         $("#run").hide();
     })
 
     $("#useWeapon").on("click", function(){
         var weapon = $("#useWeapon").data("weapon")
+        if(weapon == 0){
+            alert("You Dont Have Enough Weapons for that!")
+        }
+        else{
         weapon1 = weapon -1;
         console.log(weapon)
         $("#useWeapon").html("Use Weapon: " +weapon1)
@@ -142,6 +147,7 @@ $(document).ready(function () {
         $.ajax('/character/weapons/' + id, {
             type: "PUT"
         }).then(useWeapon(encounterChance))
+    }
     })
   
     updateTurn = function () {
@@ -175,8 +181,9 @@ battleLoad = function(num){
 encounter = function() {
     var encounterChance = Math.random();
     console.log(encounterChance);
+    
     $("#msg").empty();
-
+    $("#next").show();
     if (encounterChance < 0.33333) {
         showText("#msg", dialogue[5], 0, 100);
         return;

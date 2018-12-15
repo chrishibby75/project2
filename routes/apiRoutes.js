@@ -84,71 +84,94 @@ module.exports = function (app) {
   ///api call for buying things in the store in the game
   //_____________________________________________________
   app.put('/test/shop/character/weapons/:id', (req, res) => {
-    id = req.params.id
+
+    var id = req.params.id
     item = req.body.item
     price = parseInt(req.body.price)
-    quantity = parseInt(req.body.quantity)
+    var quantity = parseInt(req.body.quantity)
     money = parseInt(req.body.money)
     value = price * quantity
     gold = money - value
-    if (item == "assets") {
-      db.Character.update({
-        gold: gold,
-        assets: quantity
-      }, {
+    console.log(item)
+    if (item == "asset") {
+      db.Character.findOne({
         where: {
           id: id
         }
-      }).then(() => {
-        db.Character.findOne({
+      }).then(data => {
+        quantity = data.assets + quantity
+        db.Character.update({
+          gold: gold,
+          assets: quantity
+        }, {
           where: {
             id: id
           }
-        }).then(data => {
-          hbsObject = {
-            data: data
-          }
-          res.render("testshop", hbsObject)
+        }).then(() => {
+          db.Character.findOne({
+            where: {
+              id: id
+            }
+          }).then(data => {
+            hbsObject = {
+              data: data
+            }
+            res.render("testshop", hbsObject)
+          })
         })
       })
     } else if (item == "potion") {
-      db.Character.update({
-        gold: gold,
-        potion: quantity
-      }, {
+      db.Character.findOne({
         where: {
           id: id
         }
-      }).then(() => {
-        db.Character.findOne({
+      }).then(data => {
+        quantity = data.potion + quantity
+        db.Character.update({
+          gold: gold,
+          potion: quantity
+        }, {
           where: {
             id: id
           }
-        }).then(data => {
-          hbsObject = {
-            data: data
-          }
-          res.render("testshop", hbsObject)
+        }).then(() => {
+          db.Character.findOne({
+            where: {
+              id: id
+            }
+          }).then(data => {
+            hbsObject = {
+              data: data
+            }
+            res.render("testshop", hbsObject)
+          })
         })
       })
     } else {
-      db.Character.update({
-        gold: gold,
-        food: quantity
-      }, {
+      db.Character.findOne({
         where: {
           id: id
         }
-      }).then(() => {
-        db.Character.findOne({
+      }).then(data => {
+        quantity = data.food + quantity
+        db.Character.update({
+          gold: gold,
+          food: quantity
+        }, {
           where: {
             id: id
           }
-        }).then(data => {
-          hbsObject = {
-            data: data
-          }
-          res.render("testshop", hbsObject)
+        }).then(() => {
+          db.Character.findOne({
+            where: {
+              id: id
+            }
+          }).then(data => {
+            hbsObject = {
+              data: data
+            }
+            res.render("testshop", hbsObject)
+          })
         })
       })
     }
