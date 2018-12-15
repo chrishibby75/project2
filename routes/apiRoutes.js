@@ -15,21 +15,47 @@ module.exports = function (app) {
   //update characters hp weather they take damage
   //or take a potion
   // req.body.hp is either passes as yes or no which determines it
-  app.put("/character/hp/:id", (req, res) => {
+  app.put("/character/sleepy/:id", (req,res)=>{
+    id = req.params.id;
+    db.Character.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(data=>{
+      var food = data.food;
+      food1 = food - 1;
+      console.log(food1)
+      db.Character.update({
+        food: food1,
+        sleepy: 'no'
+      },
+    {
+      where: {
+        id: id
+      }
+    })
+    }).then(res.redirect("/game/"+id))
+  })
+  app.put("/character/game/hp/:id", (req, res) => {
 
     id = req.params.id
+    
     db.Character.findOne({
       where: {
         id: req.params.id
       }
     }).then(data => {
-      if (req.body.hp === 'yes') {
+      potion = data.potion;
+      potion1 = potion - 1
+      if (req.body.hp == 'yes') {
         var hp = data.hp + 40
-        if (hp > 2000) {
+        console.log(hp)
+        if (hp > 100) {
           hp = 100
         }
         db.Character.update({
           hp: hp,
+          potion: potion1
         }, {
           where: {
             id: id
@@ -38,9 +64,10 @@ module.exports = function (app) {
           res.redirect('/game/' + id)
         })
       } else {
-        var hp = data.hp - 45;
+        var hp = data.hp;
+        var hp1 = data.hp -45
         db.Character.update({
-          hp: hp,
+          hp: hp1,
         }, {
           where: {
             id: id
@@ -83,7 +110,7 @@ module.exports = function (app) {
   ///
   ///api call for buying things in the store in the game
   //_____________________________________________________
-  app.put('/test/shop/character/weapons/:id', (req, res) => {
+  app.put('/shop/character/weapons/:id', (req, res) => {
 
     var id = req.params.id
     item = req.body.item
@@ -93,7 +120,7 @@ module.exports = function (app) {
     value = price * quantity
     gold = money - value
     console.log(item)
-    if (item == "asset") {
+    if (item === "assets") {
       db.Character.findOne({
         where: {
           id: id
@@ -231,5 +258,19 @@ module.exports = function (app) {
 
     })
   })
+  //lets the character resume gameplay
+  app.post("/api/game/resume", (req, res) => {
+    db.Game.findOne({ where: 
+      {
+        game_name: req.body.game_name.trim(),
+        password: req.body.password.trim()
+      }
+    }).then((data => {
+      console.log(data);
+      res.redirect('/game/' + data.id);
+    }))
+  })
+
+
 
 }

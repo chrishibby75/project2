@@ -100,7 +100,25 @@ p {
    left: 70%;
    top: 12.5%
 }
-
+#monster{
+  height: 250px;
+  width: 300px;
+  position: absolute;
+  top: 40%;
+  left: 40%
+}
+#over{
+  position: absolute;
+  top: 40%;
+  left: 25%;
+}
+.overmg{
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  font-size: 20px;
+  color: #fdeaff 
+}
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
   
@@ -158,6 +176,16 @@ p {
   left:65%;
   padding-left: 1%;
   padding-right: 1%;
+}
+#fight{
+  position: absolute;
+  top: 70%;
+  left: 65%
+}
+#sneak{
+  position: absolute;
+  top: 70%;
+  right: 65%;
 }
 #run{
   position: absolute;
