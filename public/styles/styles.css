@@ -371,10 +371,17 @@ opacity: .65
   
 }
 
-/*Media Queries */
+/* media responsive */
 
-@media screen and (min-width: 300px) {
-  #indexbg p,
+@media screen and (max-width: 1200px) {
+.hat,
+#gamescreen,
+#selectGame
+ {
+  max-width: 100%;
+}
+
+#indexbg p,
   #characterbg p,
   #loginbg p,
   #storebg p,
@@ -387,5 +394,40 @@ opacity: .65
       height: 100px;
       width: 100px;
   }
-} 
+
+
+}
+
+@media screen and (max-width: 992px) {
+  .hat
+  #gamescreen
+  #selectGame
+   {
+    max-width: 100%;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .hat
+  #gamescreen
+  #selectGame
+   {
+    max-width: 100%;
+  }
+  
+    #indexbg p,
+    #characterbg p,
+    #loginbg p,
+    #storebg p,
+    #navbarNav,
+    #logo,
+    #login
+     {
+       
+        font-size: 25px;
+        height: 100px;
+        width: 100px;
+    }
+  
+  }
 
