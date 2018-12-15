@@ -7,61 +7,22 @@
   <button id="useWeapon" data-weapon="{{data.assets}}">Use Weapon: {{data.assets}}</button>
   <button id="run">Try and Escape</button>
   <button id='next' class="gamebut">Next</button>
+  <button id="fight" class="gamebut">Fight Through</button>
+  <button id="sneak" class = "gamebut">Sneak Through</button>
   <button id='shop' class="gamebut"><a  href="/test/shop/{{data.id}}">Shop </a></button>
   <button id='adventure' class="gamebut">Adventure</button>
-
-</div>
-
-
-
-
-
-
-
-
-
-<!--tezsting hp: {{data.hp}}
-<button method="POST" action="/character/hp/{{data.id}}?_method=PUT" name='hp' value="yes">Use Potion</button>
-
-<form method="POST" action='/character/hp/{{data.id}}?_method=PUT' class='button-size'>
+  <div id= 'monster'></div>
+ 
+ 
+  
+   
+   <form method="POST" id='#potion1' action='/character/game/hp/{{data.id}}?_method=PUT' class='button-size'>
     <input type="hidden" type="text" name="hp" value='yes'>
-    <br> {{!-- enter eater name here --}}
-    <button type="submit" class="btn btn-default red eat">eat</button>
+    <br> 
+    <button id='boi'type="submit" class="gamebut eat">Use Potion: {{data.potion}}</button>
 </form>
-
-<button id='next'>Next</button>
-
-<div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-        <a href="#">Gold: {{data.gold}}</a>
-        <a href="#">Potions: {{data.potion}}</a>
-        <a href="#">Assets: {{data.assets}}</a>
-        <a href="#">Food: {{data.food}}</a>
-    </div>
 </div>
-
-<div id='textbox'></div>
-<button id= 'weapons'>use assets:{{data.assets}}</button>
-<button id= 'adventure'>Adventure</button>
-<button id='shop'><a  href="/test/shop/{{data.id}}">Shop </a></button>
-<script>
-    function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>-->
+ <button id="over" class= "gamebut"><a href="/">Start Again</a></button>
+  <div id ='overmg' class="overmg">You lost click the button to start over with a new character</div>
+  <div id= 'won' class= "overmg">Congratulations You Won! You got the sword and saved your lover!</div>
+  <button id ='playag' class='gamebut'><a href='/'>Play Again</a></button>
