@@ -299,10 +299,61 @@ opacity: .65
 
 /* media responsive */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+.hat,
+#gamescreen,
+#selectGame
+ {
+  max-width: 100%;
+}
+
+#indexbg p,
+  #characterbg p,
+  #loginbg p,
+  #storebg p,
+  #navbarNav,
+  #logo,
+  #login
+   {
+     
+      font-size: 25px;
+      height: 100px;
+      width: 100px;
+  }
+
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
+  .hat
+  #gamescreen
+  #selectGame
+   {
+    max-width: 100%;
+  }
 
 }
+@media screen and (max-width: 768px) {
+  .hat
+  #gamescreen
+  #selectGame
+   {
+    max-width: 100%;
+  }
+  
+    #indexbg p,
+    #characterbg p,
+    #loginbg p,
+    #storebg p,
+    #navbarNav,
+    #logo,
+    #login
+     {
+       
+        font-size: 25px;
+        height: 100px;
+        width: 100px;
+    }
+  
+  }
+
