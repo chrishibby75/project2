@@ -77,6 +77,65 @@ p {
 #selectGame {
   background-color: black;
 }
+#hp {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: #fdeaff 
+}
+
+#hp1{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: #fdeaff;
+  position: absolute;
+  top: 12.5%
+}
+
+
+#gold{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 32px;
+   color: #fdeaff;
+   position: absolute;
+   left: 70%;
+   top: 12.5%
+}
+
+.gameCont{
+  background-image: url("/imgf/wizardbg.jpg");
+  
+  /*border: 30px transparent solid ;
+  border-image: url("/imgf/border2.png") 80 60 60 stretch;*/
+  background-size:cover;
+  height: 600px;
+  width: 960px
+}
+.gameShop{
+  background-image: url("/imgf/store2bg.jpg");
+  height: 600px;
+  width: 960px
+}
+
+p { 
+  margin-left: 15%;
+  margin-top: 2%;
+  font-family:'Times New Roman', Times, serif;
+  size: 28px;
+  font-size: 45px;
+  
+ text-align: left;
+ color: #d8d8d8;
+ text-shadow: 1px .5px #918e91;
+ opacity: 0.8;
+}
+.shophead{
+  position: absolute;
+  left: 36%;
+  top: 25%;
+  font-family: 'Times New Roman', Times, serif;
+  color: #514d4d;
+  text-shadow: 1px .5px#918e91
+}
 
 #logo {  
   height: 150px;
@@ -93,6 +152,20 @@ p {
   background-color:#fdeaff 
 }
 /*Button to shop*/
+#useWeapon{
+  position: absolute;
+  top: 70%;
+  left:65%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#run{
+  position: absolute;
+  top: 70%;
+  right: 65%;
+  padding-left: 1%;
+  padding-right: 1%
+}
 #adventure{
   position: absolute;
   top: 70%;
@@ -102,7 +175,7 @@ p {
 }
 #shop{
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 65%;
   padding-left: 2%;
   padding-right: 2%
@@ -116,7 +189,7 @@ p {
 }
 #buy{
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 65%;
   padding-left: 2%;
   padding-right: 2%;
@@ -295,6 +368,7 @@ opacity: .65
   background-color:   #a382a3;
   padding-bottom: .5%;
   padding-top: .5%;
+  
 }
 
 /* media responsive */
