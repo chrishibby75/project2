@@ -17,7 +17,7 @@ var townPics = [
     "/imgf/riften.png",
     "/imgf/sunrise.jpg",
     "/imgf/generalScene.png",
-    "/imgf/windhelm.jpg",
+    "/imgf/windhelm.png",
     "/imgf/winterVillage.png"
 
 ];
@@ -49,7 +49,6 @@ var showText = function(target, message, index, interval) {
     }, interval);
   }
 };
-var encounterChance = Math.random();
 var id = $("#characterName").data("name");
 $(document).ready(function () {
   var turn = parseInt($("#turn").data("turn"));
@@ -69,7 +68,7 @@ $(document).ready(function () {
     turn++;
     $("#msg").empty();
     gameboi(turn, updateTurn());
-    console.log(turn);
+    
   });
 
 // showText("#msg", dialogue[turn], 0, 100);   
@@ -91,7 +90,9 @@ $(document).ready(function () {
                 break;
 
             case 3:
+                
                 townLoad(1);
+                
                 break;
             case 4:
                 battleLoad(1)
@@ -100,13 +101,14 @@ $(document).ready(function () {
                 townLoad(2);
                 break;
             case 6:
-                battleLoad(3)
+                battleLoad(2)
                 break;
             case 7:
                 townLoad(3)
                 break;
             case 8:
-                battleLoad(4)
+                battleLoad(3)
+                break;
             case 9:
                 townLoad(4)
                 break;
@@ -129,9 +131,14 @@ $(document).ready(function () {
     })
 
     $("#useWeapon").on("click", function(){
+        var weapon = $("#useWeapon").data("weapon")
+        weapon1 = weapon -1;
+        console.log(weapon)
+        $("#useWeapon").html("Use Weapon: " +weapon1)
         var id = $("#characterName").data('name')
         $("#msg").empty()
-        
+        var encounterChance = Math.random();
+
         $.ajax('/character/weapons/' + id, {
             type: "PUT"
         }).then(useWeapon(encounterChance))
@@ -148,9 +155,11 @@ $(document).ready(function () {
 })
 townLoad = function(num){
     $(function () {
-        $("#adventure").show()
-        $('#shop').show()
-        $('#next').hide()
+        $("#adventure").show();
+        $('#shop').show();
+        $('#next').hide();
+        $("useWeapon").hide();
+        $("#run").hide();
         showText("#msg", dialogue[4], 0, 100);
         $('.gameCont').css("background-image", "url("+ townPics[num] + ")")
     })
@@ -158,13 +167,13 @@ townLoad = function(num){
 battleLoad = function(num){
     showText("#msg", dialogue[3], 0, 100);
     $("#adventure").hide();
-    $("#shopt").hide();
+    $("#shop").hide();
     $("#useWeapon").show();
     $("#run").show();
     $('.gameCont').css("background-image", "url("+ wildPics[num] + ")");
 }
-encounter = function(encounterChance) {
-    
+encounter = function() {
+    var encounterChance = Math.random();
     console.log(encounterChance);
     $("#msg").empty();
 
@@ -183,7 +192,7 @@ encounter = function(encounterChance) {
     }
 }
 
-useWeapon = function(encounterChace){
+useWeapon = function(encounterChance){
     if (encounterChance < 0.65){
         getGold();
         showText("#msg", dialogue[9],0, 100)
@@ -198,13 +207,19 @@ useWeapon = function(encounterChace){
 
 
 getGold = function () {
-    var id = $('#characterName').data('name')
+  var id = $('#characterName').data('name')
+  gold = $("#gold").data("gold");
+  gold1 = gold + 400;
+  $("#gold").html("gold: "+ gold1)
   $.ajax("/character/gold/" + id, {
     type: 'PUT'
     }).then($('#textbox').html(dialogue[6]))
 
 };
 takeDamage = function() {
+  var hp = $("#hp").data('data');
+  hp1 = hp - 45;
+  $("#hp").html("hp: " + hp1)
   var id = $("#characterName").data('name')
   $.ajax('/character/hp/' + id, {
     type: 'PUT',
