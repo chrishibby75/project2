@@ -54,7 +54,6 @@ module.exports = function (app) {
         if (hp > 2000) {
           hp = 100
         }
-        console.log(hp)
         db.Character.update({
           hp: hp,
         }, {
@@ -97,7 +96,9 @@ module.exports = function (app) {
       game_name: req.body.gameName,
       password: req.body.password
     }).then((data => {
-      res.redirect('/api/character/create')
+      hbsObject = {data:data}
+      //passes the game id for the join
+      res.redirect('/api/character/create', hbsObject )
     }))
   })
   //route for getting gold in the game
@@ -118,6 +119,9 @@ module.exports = function (app) {
     }).then(res.data)
     })
   })
+  ///
+  ///api call for buying things in the store in the game
+  //_____________________________________________________
   app.put('/test/shop/character/weapons/:id', (req,res)=>{
     id= req.params.id
     item = req.body.item
@@ -126,10 +130,6 @@ module.exports = function (app) {
     money= parseInt(req.body.money)
     value = price * quantity
     gold = money - value
-    console.log('value' +value)
-    console.log('money' +money)
-    console.log('gold' + gold)
-    console.log(quantity)
     db.Character.update({
          gold: gold,
          assets: quantity
@@ -143,21 +143,44 @@ module.exports = function (app) {
           id: id
         }
       }).then(data=>{
-      console.log(data.id + " what the fuck is going on")
       hbsObject = {data:data}
       res.render("testshop", hbsObject)
       })
     })
   })
+  app.put("/character/weapons/:id", (req,res)=>{
+    id = req.params.id;
+    db.Character.findOne({
+        where: {
+          id: id
+        }
+    }).then(data=>{
+          console.log("The id" + data.id)
+          id = data.id
+          var weapon = data.assets;
+          console.log(weapon)
+          console.log(id)
+          var newWeap = weapon - 1
+          db.Character.update({
+            assets: newWeap
+          },{
+            where:{
+              id: id
+            }
+          }).then(res.redirect("/game/"+ id))
+    })
+  })
   ////
   ///route for creating a new character
   app.post("/api/game/character/c/", (req, res) => {
+    id1 = req.body.gameid
     db.Character.create({
       character_name: req.body.characterName
+      
     }).then((data) => {
       var id = data.id;
       db.Game.update({
-        CharacterId: id,
+        CharacterId: id1,
 
       }, {
         where: {
@@ -170,7 +193,6 @@ module.exports = function (app) {
   })
   app.put('/turnUpdate/:id/:turn', (req,res)=>{
     turn = req.params.turn
-      console.log("BIBIJOJBOIFJBOJOIDSJOIJOJOJOIJOIJ" + turn)
     db.Game.update({
       area: turn
     
@@ -179,7 +201,7 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then((data)=>{
-      console.log(data)
+      
     })
   })
 

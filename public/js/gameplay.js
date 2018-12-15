@@ -1,5 +1,6 @@
+//all the dialogue in the game
 var dialogue = [
-    "You have lost your lover. However there is a way to bring her back. Go to the Dark Castle and bring back the magic sword. With it I can bring them back",
+    "You have lost your lover. However there is a way to bring them back. Go to the Dark Castle and bring back the magic sword. With it I can bring them back",
     "Go to the Dark Castle and bring back the magic sword. With it I can bring them back",
     "Welcome to my shop! What can I get you?",
     "Bandits attack!",
@@ -9,8 +10,32 @@ var dialogue = [
     "The bandits beat you up you lost 40 HP",
     "What do you want to do?",
     "You fired a crossbow bolt, grabbed 400 gold from the bandits and escaped!",
-    "The crossbow bold distracted the bandits and you got away"
+    "The crossbow bolt distracted the bandits and you got away"
 ];
+//pictures of different town scenes
+var townPics = [
+    "/imgf/riften.png",
+    "/imgf/sunrise.jpg",
+    "/imgf/generalScene.png",
+    "/imgf/windhelm.jpg",
+    "/imgf/winterVillage.png"
+
+];
+//pictures of the wilderness scenes
+var wildPics = [
+    "/imgf/dusk.jpg",
+    "/imgf/forestPanorama.jpg",
+    "/imgf/insideCave.jpg",
+    "/imgf/waterCave.jpg",
+    "/imgf/wilderness.jpg"
+]
+//pictures of enemies
+var monsters = [
+    "/imgf/drowner.png",
+    "/imgf/golyat.png",
+    "/imgf/assasin.png",
+    "/imgf/badguy.png"
+]
 
 ///front end javascript logic
 
@@ -56,33 +81,34 @@ $(document).ready(function () {
         $(function() {
         showText("#msg", dialogue[turn], 0, 75);
         turn++;
-
-                })
-                //buttons that on click change tthe turn ++ 
-
+                }) 
                 break;
             case 1:
-                $(function () {
-                    $("#adventure").show()
-                    $('#shop').show()
-                    $('#next').hide()
-                    showText("#msg", dialogue[4], 0, 100);
-                })
-
-                break;
+               townLoad(0)
+               break;
             case 2:
-                showText("#msg", dialogue[3], 0, 100);
-
+                battleLoad(0)
                 break;
 
             case 3:
-                $("#textbox").html(dialogue[4])
+                townLoad(1);
                 break;
-
-
-
+            case 4:
+                battleLoad(1)
+                break;
+            case 5:
+                townLoad(2);
+                break;
+            case 6:
+                battleLoad(3)
+                break;
+            case 7:
+                townLoad(3)
+                break;
+            case 8:
+                battleLoad(4)
             case 9:
-                endGame()
+                townLoad(4)
                 break;
         }
 
@@ -92,12 +118,7 @@ $(document).ready(function () {
     $("#adventure").on("click", function () {
         console.log(turn)
         turn++
-        $("#adventure").hide()
         $("#msg").empty()
-        $("#shop").hide()
-        $("#useWeapon").show();
-        $("#run").show()
-        $('.gameCont').css("background-image", "url('/imgf/insideCave.jpg')")
         console.log(turn)
         gameboi(turn, updateTurn())
     })
@@ -108,11 +129,14 @@ $(document).ready(function () {
     })
 
     $("#useWeapon").on("click", function(){
-        useWeapon()
+        var id = $("#characterName").data('name')
+        $("#msg").empty()
+        
+        $.ajax('/character/weapons/' + id, {
+            type: "PUT"
+        }).then(useWeapon(encounterChance))
     })
-    $("#buy1").on("click", function(){
-        setTimeout(alert('fuckyou'), 1000)
-    })
+  
     updateTurn = function () {
         //turn++
         var id = $("#characterName").data('name')
@@ -122,6 +146,23 @@ $(document).ready(function () {
         }).then()
     }
 })
+townLoad = function(num){
+    $(function () {
+        $("#adventure").show()
+        $('#shop').show()
+        $('#next').hide()
+        showText("#msg", dialogue[4], 0, 100);
+        $('.gameCont').css("background-image", "url("+ townPics[num] + ")")
+    })
+};
+battleLoad = function(num){
+    showText("#msg", dialogue[3], 0, 100);
+    $("#adventure").hide();
+    $("#shopt").hide();
+    $("#useWeapon").show();
+    $("#run").show();
+    $('.gameCont').css("background-image", "url("+ wildPics[num] + ")");
+}
 encounter = function(encounterChance) {
     
     console.log(encounterChance);
@@ -139,26 +180,23 @@ encounter = function(encounterChance) {
         showText("#msg", dialogue[7], 0, 100);
         takeDamage()
         return
-
     }
 }
 
-useWeapon = function(){
+useWeapon = function(encounterChace){
     if (encounterChance < 0.65){
         getGold();
-        showText("#msg", dialogue[9])
+        showText("#msg", dialogue[9],0, 100)
     }
     else {
         showText("#msg", dialogue[10], 0, 100)
     }
+    $("#next").show();
+    $("#useWeapon").hide();
+    $("#run").hide();
 }
 
 
-timeboi = function () {
-    var time = 0
-    console.log('timeboi')
-    time++
-}
 getGold = function () {
     var id = $('#characterName').data('name')
   $.ajax("/character/gold/" + id, {
