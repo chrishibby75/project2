@@ -58,20 +58,24 @@ p {
 
   background-image: url("public/imgf/wizardbg.jpg");
   background-size:cover; 
+  background-repeat: no-repeat;
 }
 
 #characterbg {
   background-image: url("/imgf/characters.jpg");
+  background-repeat: no-repeat;
 }
 
 #loginbg {
   background-image: url("/imgf/login.jpg");
+  background-repeat: no-repeat;
   
 }
 
 #storebg{
   background-image: url("/imgf/store2bg.jpg");
   background-size:cover;
+  background-repeat: no-repeat;
 }
 
 #selectGame {
@@ -133,15 +137,18 @@ p {
 }
 .gameCont{
   background-image: url("/imgf/wizardbg.jpg");
+  background-repeat: no-repeat;
   
   /*border: 30px transparent solid ;
   border-image: url("/imgf/border2.png") 80 60 60 stretch;*/
   background-size:cover;
   height: 600px;
-  width: 960px
+  width: 960px,
+  background-repeat: no-repeat;
 }
 .gameShop{
   background-image: url("/imgf/store2bg.jpg");
+  background-repeat: no-repeat;
   height: 600px;
   width: 960px
 }
@@ -152,11 +159,10 @@ p {
   font-family:'Times New Roman', Times, serif;
   size: 28px;
   font-size: 45px;
-  
- text-align: left;
- color: #d8d8d8;
- text-shadow: 1px .5px #918e91;
- opacity: 0.8;
+  text-align: left;
+  color: #d8d8d8;
+  text-shadow: 1px .5px #918e91;
+  opacity: 0.8;
 }
 .shophead{
   position: absolute;
@@ -423,18 +429,26 @@ opacity: .65
   max-width: 100%;
 }
 
-#indexbg p,
+  #indexbg p,
   #characterbg p,
   #loginbg p,
   #storebg p,
   #navbarNav,
   #logo,
   #login
-   {
+          {
      
       font-size: 25px;
       height: 100px;
       width: 100px;
+  }
+
+  .welcome,
+  .navigate
+   {
+    text-align: left;
+    position: relative;
+    margin-right: 75%
   }
 
 
@@ -454,6 +468,20 @@ opacity: .65
    {
     max-width: 100%;
   }
+
+  #indexbg p,
+    #characterbg p,
+    #loginbg p,
+    #storebg p,
+    #navbarNav,
+    #logo,
+    #login
+     {
+       
+        font-size: 25px;
+        height: 100px;
+        width: 100px;
+    }
 
 }
 @media screen and (max-width: 768px) {
