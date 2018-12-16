@@ -1,10 +1,13 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
-    "database": "rpgame",
+    "password": "n1qd749y7g83o94f",
+    "database": "g78ppwo7orsk0zn8",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "scripts":{
+      "start": "node server.js"
+    }
   },
   "test": {
     "username": "root",
@@ -14,10 +17,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "password",
-    "database": "rpgame",
-    "host": "127.0.0.1",
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }
