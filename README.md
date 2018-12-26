@@ -1,4 +1,4 @@
-# Project2
+# WizardQuest
 
 ## Demo
 This game is deployed on Heroku.  Play it [here](https://tranquil-shore-27347.herokuapp.com/)
